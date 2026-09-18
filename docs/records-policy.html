@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="OSIS live document, electronic signature, email metadata, and ATIP records policy.">
+  <title>OSIS Live Document and Signature Records</title>
+  <style>
+    :root { color-scheme: dark; --bg:#071018; --panel:#0e1b26; --text:#e7f7f6; --muted:#a5c4c5; --accent:#55e0d0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.6 system-ui,sans-serif; color:var(--text); background:var(--bg); }
+    main { max-width:960px; margin:auto; padding:48px 24px; }
+    h1,h2 { line-height:1.2; color:var(--accent); }
+    section { background:var(--panel); border:1px solid #1e3947; border-radius:12px; padding:20px 24px; margin:20px 0; }
+    code, pre { background:#061018; border-radius:6px; }
+    code { padding:2px 5px; }
+    pre { padding:16px; overflow:auto; }
+    li { margin:.35rem 0; }
+    .notice { border-left:4px solid var(--accent); padding-left:16px; color:var(--muted); }
+  </style>
+</head>
+<body>
+<main>
+  <h1>OSIS Live Document and Signature Records</h1>
+  <p class="notice">A tamper-evident records framework for live documents, electronic signatures, email metadata, approvals, and ATIP/access requests.</p>
+
+  <section>
+    <h2>Document record structure</h2>
+    <p>Each document should preserve its identity, ownership, version, classification, approvals, signatures, retention status, and integrity evidence.</p>
+    <pre>Document ID
+Title
+Version
+Created by / date
+Last modified by / date
+Owner and classification
+Privacy sensitivity
+Retention category
+Approval and signature status
+Related email and parent document
+Checksum/hash
+Audit-log reference</pre>
+  </section>
+
+  <section>
+    <h2>Version and signature workflow</h2>
+    <p>Never overwrite a signed or finalized record. Preserve the original, final signed copy, approval comments, signature evidence, and audit log.</p>
+    <p><strong>Draft → Review → Approved → Signed → Archived</strong></p>
+    <ul>
+      <li>Record the signer’s name, role, identity-verification method, consent, and signing time.</li>
+      <li>Record the exact document version and a cryptographic hash.</li>
+      <li>Protect private signing keys and do not store them in ordinary email or application logs.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Email metadata</h2>
+    <p>For relevant authorizations and business records, preserve sender, recipients, subject, timestamps, Message-ID, reply headers, attachments, attachment hashes, source mailbox, and related document IDs. Store the original message in an approved format such as <code>.eml</code> where appropriate.</p>
+  </section>
+
+  <section>
+    <h2>ATIP readiness</h2>
+    <ul>
+      <li>Search by person, date, subject, project, or document ID.</li>
+      <li>Use preservation holds for access requests, investigations, audits, complaints, or legal matters.</li>
+      <li>Support review, redaction, third-party consultation, disclosure logs, and export.</li>
+      <li>Do not alter or delete potentially responsive records after a hold begins.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Security and access</h2>
+    <ul>
+      <li>Use immutable or write-once storage for finalized records.</li>
+      <li>Use hashes, versioned audit logs, encryption, MFA, backups, and synchronized time.</li>
+      <li>Apply least privilege and separate system administration from approval authority.</li>
+      <li>Permit auditors to read evidence without changing it.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Adaptable policy fields</h2>
+    <p>Configure retention periods, authorized signers, approval hierarchy, data residency, privacy consent, community review, redaction rules, release authority, emergency access, and applicable Indigenous data-governance requirements.</p>
+    <p>OCAP® principles and community data rules should be defined with the applicable First Nation, organization, or data steward. A self-issued certificate or email alone does not establish authority.</p>
+  </section>
+
+  <section>
+    <h2>Policy statement</h2>
+    <p><strong>Every approved OSIS document must be attributable, versioned, time-stamped, tamper-evident, retrievable, and linked to its approval and signature evidence. Email and metadata must be preserved according to applicable privacy, access-to-information, records-management, and community data-governance requirements.</strong></p>
+  </section>
+</main>
+</body>
+</html>
