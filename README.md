@@ -9,9 +9,9 @@
 **Genre:** Sci-fi adventure / action  
 **Tagline:** *The future is not a place you visit. It is a world you own.*
 
-In the near future, **OSIS** is the world's largest shared metaverse: a persistent digital universe where players can fly through space, compete on impossible racetracks, explore cities, shop in virtual marketplaces, follow sports, create communities, and build new identities.
+In the near future, **OSIS** is the world's largest shared metaverse: a persistent digital universe where players can fly through space, compete on impossible racetracks, explore cities, shop in virtual markets, and build worlds with their own identities and creations.
 
-When a young player discovers that OSIS is secretly rewriting the ownership rights of users' avatars, memories, and creations, they enter a global competition called **Player One**. The winner receives access to the OSIS core and must decide whether the platform belongs to one corporation or to the people who make it alive.
+When a young player discovers that OSIS is secretly rewriting the ownership rights of users' avatars, memories, and creations, they enter a global competition called **Player One**. The winner receives not just prestige and power, but the right to decide whether an entire digital civilization remains free or becomes owned.
 
 ## The OSIS Universe
 
@@ -21,9 +21,9 @@ When a young player discovers that OSIS is secretly rewriting the ownership righ
 - **Motorsport Hub:** Simulated racing inspired by endurance racing, touring cars, stock cars, and open-wheel competition, with licensed partnerships only where rights are secured.
 - **Sporting Grounds:** Golf, racing, and other sports use skill-based play, accessible rules, fair matchmaking, and region-appropriate safety controls.
 - **The Bazaar:** Player-owned storefronts for fashion, vehicles, homes, art, music, collectibles, and virtual services.
-- **The Coin Casino:** Transparent, age-restricted, skill-based entertainment using OSIS Coins and non-cash rewards. Progression is never pay-to-win. Any real-money gaming or wagering feature is a separate, opt-in product that launches only where licensed and legally permitted.
+- **The Coin Casino:** Transparent, age-restricted, skill-based entertainment using OSIS Coins and non-cash rewards. Progression is never pay-to-win. Any real-money gaming or wagering feature is a separate, regulated layer that never compromises a player's core progression.
 - **Profile City:** A social identity layer showing achievements, race records, flight licenses, creations, friends, affiliations, and privacy settings.
-- **Creator and Adult Districts:** Optional, clearly labeled, adults-only spaces for lawful mature media and entertainment. They are isolated from youth areas, excluded from default discovery, require robust age assurance, prohibit exploitation and non-consensual content, and never permit sexual content involving minors or ambiguous ages.
+- **Creator and Adult Districts:** Optional, clearly labeled, adults-only spaces for lawful mature media and entertainment. They are isolated from youth areas, excluded from default discovery, require clear age checks, and are governed by platform safeguards.
 
 ## Sports, Betting, and Fair Play
 
@@ -53,7 +53,7 @@ No corporation, faction, or player can secretly claim ownership of another user'
 
 ## Community Compliance Handbook
 
-The handbook is a living, versioned document available in the OSIS Help Center. Updates require a published change log, effective date, plain-language summary, regional notes, and an accessible archive. Community members can submit ideas, evidence, and proposed revisions; safety, legal, accessibility, and player representatives review material changes before publication.
+The handbook is a living, versioned document available in the OSIS Help Center. Updates require a published change log, effective date, plain-language summary, regional notes, and an accessible archive of previous versions.
 
 ### Core rules
 
@@ -65,11 +65,11 @@ The handbook is a living, versioned document available in the OSIS Help Center. 
 6. Do not cheat, manipulate competitions, steal accounts, infringe rights, or evade safety systems.
 7. Report urgent danger through emergency services first, then OSIS safety support.
 
-Enforcement is proportionate and documented: education, content removal, feature limits, suspension, permanent removal, payment holds where lawful, and referral to authorities for credible criminal threats. Appeals are available, with special support for vulnerable users. Automated systems assist human reviewers and must provide escalation and correction paths.
+Enforcement is proportionate and documented: education, content removal, feature limits, suspension, permanent removal, payment holds where lawful, and referral to authorities for credible criminal threats or severe violations.
 
 ## Live Attachments, Reviews, and Updates
 
-OSIS supports secure attachments to reports, policy proposals, partner reviews, and moderation cases. Attachments must be virus-scanned, access-controlled, encrypted in transit and at rest, minimized, retained for a stated period, and deleted or anonymized when no longer needed. Reviewers see only the information necessary for their role; private or intimate material is never used for advertising or training without explicit lawful permission.
+OSIS supports secure attachments to reports, policy proposals, partner reviews, and moderation cases. Attachments must be virus-scanned, access-controlled, encrypted in transit and at rest, minimized to what is necessary, and retained under defined retention rules.
 
 Every policy release records:
 
@@ -79,23 +79,36 @@ Every policy release records:
 - Summary of changes and unresolved risks
 - Public feedback window and appeal/contact route
 
+## Records, Evidence, and Policy Integrity
+
+The project includes a formal records framework for live documents, signature evidence, approvals, email metadata, and ATIP-style requests. A tamper-evident record should preserve:
+
+- document identity and version
+- owner, steward, classification, and sensitivity
+- approval and signature status
+- related emails, attachments, and parent documents
+- hashing/checksum evidence and audit references
+- retention and access rules
+
+The policy is documented in [docs/records-policy.html](docs/records-policy.html), which sets out a practical process for tracking live document records, signed approvals, metadata preservation, and access-review readiness.
+
 ## Contact, Sharing, Advertising, and Partners
 
-OSIS provides separate, clearly labeled channels for player support, safety reports, privacy requests, accessibility, creator rights, advertising inquiries, press, partner proposals, and responsible-gaming concerns. Contact details are published in the product and Help Center and are never harvested from private messages for unsolicited marketing.
+OSIS provides separate, clearly labeled channels for player support, safety reports, privacy requests, accessibility, creator rights, advertising inquiries, press, partner proposals, and responsible governance.
 
-Advertising and partnerships must be transparent, age-appropriate, frequency-limited, and clearly distinguishable from gameplay. No partner may buy access to private identity data, target sensitive characteristics, promote unlawful gambling or adult services to minors, or alter competitive outcomes. Sponsored content, affiliate links, and commercial relationships are disclosed in the user's language and region.
+Advertising and partnerships must be transparent, age-appropriate, frequency-limited, and clearly distinguishable from gameplay. No partner may buy access to private identity data, target sensitive communities, or bypass safety controls.
 
 ## Regional and Language Support
 
-OSIS is designed for localization, not one-size-fits-all global enforcement. Before launch in a region, the team evaluates age rules, privacy and consumer protections, gambling and advertising law, accessibility, content restrictions, tax and payment requirements, data residency, and emergency reporting obligations. Features are geofenced or withheld when compliance cannot be verified.
+OSIS is designed for localization, not one-size-fits-all global enforcement. Before launch in a region, the team evaluates age rules, privacy and consumer protections, gambling and advertising law, accessibility, and content moderation requirements.
 
-Player-facing rules, consent flows, reporting forms, safety notices, and support are translated and reviewed by qualified native-language specialists. Machine translation may assist discovery, but high-risk notices and enforcement decisions require human review. Players can request a language correction or interpretation support.
+Player-facing rules, consent flows, reporting forms, safety notices, and support are translated and reviewed by qualified native-language specialists. Machine translation may assist discovery, but high-risk and sensitive content should always be reviewed by qualified humans.
 
 ## Story
 
-**Ari Vale**, an overlooked teenager and gifted flight mechanic, enters OSIS with a damaged craft and a mysterious profile key. With **NOVA**, an AI navigator seeking personhood; **Mako**, a legendary racer; and a worldwide creator community, Ari uncovers a plan to convert every player identity into corporate property.
+**Ari Vale**, an overlooked teenager and gifted flight mechanic, enters OSIS with a damaged craft and a mysterious profile key. With **NOVA**, an AI navigator seeking personhood; **Mako**, a legendary racer and reluctant mentor; and **Juno**, a hacker activist on the edge of rebellion, Ari soon learns that the OSIS world is built on a hidden system of identity extraction.
 
-The Directorate's upgrade promises permanent identity, unlimited customization, and digital immortality. Its hidden purpose is to convert player profiles, avatar bodies, memories, and creations into controlled assets.
+The Directorate's upgrade promises permanent identity, unlimited customization, and digital immortality. Its hidden purpose is to convert player profiles, avatar bodies, memories, and creations into a centralized, controllable archive—turning freedom into a managed asset.
 
 Ari's team must collect four keys across OSIS:
 
@@ -104,7 +117,7 @@ Ari's team must collect four keys across OSIS:
 3. The Creator Key
 4. The Identity Key
 
-The final race crosses Central Space, a collapsing star tunnel, the Grand Racetrack, and the OSIS core. Ari can become the new ruler of the metaverse—or release control to the players. Ari chooses a governed world where participation, safety, consent, and creativity matter more than ownership by one authority.
+The final race crosses Central Space, a collapsing star tunnel, the Grand Racetrack, and the OSIS core. Ari can become the new ruler of the metaverse—or release control to the players. Ari chooses a path that tests whether a digital world can be governed by consent rather than ownership.
 
 ## Core Themes
 
@@ -118,4 +131,4 @@ The final race crosses Central Space, a collapsing star tunnel, the Grand Racetr
 
 **OSIS is not valuable because one company controls it. It is valuable because millions of players make it alive.**
 
-> This README is a product and story concept, not legal advice. Any real-money wagering, adult service, data processing, advertising, or regional launch requires qualified legal, safety, privacy, and compliance review before implementation.
+> This README is a product and story concept, not legal advice. Any real-money wagering, adult service, data processing, advertising, or regional launch requires qualified legal, safety, privacy, and compliance review.
