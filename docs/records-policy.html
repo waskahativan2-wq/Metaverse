@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="OSIS live document, electronic signature, email metadata, and ATIP records policy.">
+  <meta name="description" content="OSIS live document, electronic signature, email metadata, approval, and ATIP records policy.">
   <title>OSIS Live Document and Signature Records</title>
   <style>
     :root { color-scheme: dark; --bg:#071018; --panel:#0e1b26; --text:#e7f7f6; --muted:#a5c4c5; --accent:#55e0d0; }
@@ -14,7 +14,7 @@
     section { background:var(--panel); border:1px solid #1e3947; border-radius:12px; padding:20px 24px; margin:20px 0; }
     code, pre { background:#061018; border-radius:6px; }
     code { padding:2px 5px; }
-    pre { padding:16px; overflow:auto; }
+    pre { padding:16px; overflow:auto; white-space:pre-wrap; }
     li { margin:.35rem 0; }
     .notice { border-left:4px solid var(--accent); padding-left:16px; color:var(--muted); }
   </style>
@@ -22,39 +22,60 @@
 <body>
 <main>
   <h1>OSIS Live Document and Signature Records</h1>
-  <p class="notice">A tamper-evident records framework for live documents, electronic signatures, email metadata, approvals, and ATIP/access requests.</p>
+  <p class="notice">A tamper-evident records framework for live documents, electronic signatures, approvals, email metadata, launch decisions, and ATIP/access requests.</p>
 
   <section>
     <h2>Document record structure</h2>
-    <p>Each document should preserve its identity, ownership, version, classification, approvals, signatures, retention status, and integrity evidence.</p>
-    <pre>Document ID
-Title
-Version
-Created by / date
-Last modified by / date
-Owner and classification
-Privacy sensitivity
-Retention category
-Approval and signature status
-Related email and parent document
-Checksum/hash
-Audit-log reference</pre>
+    <p>Each record must preserve identity, ownership, version, classification, approvals, signatures, retention status, and integrity evidence.</p>
+    <pre>record_id
+title
+document_type
+version
+status
+created_by / created_at
+updated_by / updated_at
+owner / classification
+privacy_sensitivity
+retention_category
+related_document_ids / related_email_ids
+approval_status / signature_status
+signer_name / signer_role
+identity_verification_method / signed_at
+source_hash / previous_hash
+audit_log_reference
+storage_location
+access_controls / legal_hold</pre>
+    <p>Approval records also preserve the decision, rationale, release or artifact identifier, evidence links, open exceptions, rollback trigger, and next review date.</p>
   </section>
 
   <section>
-    <h2>Version and signature workflow</h2>
-    <p>Never overwrite a signed or finalized record. Preserve the original, final signed copy, approval comments, signature evidence, and audit log.</p>
+    <h2>Version, evidence, and signature workflow</h2>
+    <p>Never overwrite a signed, approved, archived, or held record. Preserve the original, final signed copy, approval comments, signature evidence, and audit log.</p>
     <p><strong>Draft → Review → Approved → Signed → Archived</strong></p>
     <ul>
-      <li>Record the signer’s name, role, identity-verification method, consent, and signing time.</li>
-      <li>Record the exact document version and a cryptographic hash.</li>
+      <li>Generate and retain a SHA-256 hash at creation and after each material change.</li>
+      <li>Link each version to its previous record and approval evidence; use <code>previous_hash: null</code> only for a documented initial version.</li>
+      <li>A change to a signed record creates a new version and requires re-review and re-signature.</li>
+      <li>Record the signer’s name, role, identity-verification method, consent, exact version, hash, and ISO-8601 UTC signing time.</li>
       <li>Protect private signing keys and do not store them in ordinary email or application logs.</li>
+      <li>Store final evidence in immutable, write-once, or tamper-evident storage where practical.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Approval and launch controls</h2>
+    <ul>
+      <li>Identify the accountable owner, product, security, privacy, safety/moderation, legal/compliance, and operations reviewers as applicable.</li>
+      <li>Bind the approval to the exact release commit, artifact, configuration, migration identifiers, and evidence-package hash.</li>
+      <li>Record every exception with an owner, mitigation, due date, expiry date, and acceptance authority.</li>
+      <li>Do not mark a release <strong>Go</strong> until required evidence and signatures are complete.</li>
+      <li>Separate system administration from approval authority.</li>
     </ul>
   </section>
 
   <section>
     <h2>Email metadata</h2>
-    <p>For relevant authorizations and business records, preserve sender, recipients, subject, timestamps, Message-ID, reply headers, attachments, attachment hashes, source mailbox, and related document IDs. Store the original message in an approved format such as <code>.eml</code> where appropriate.</p>
+    <p>For relevant authorizations and business records, preserve sender, recipients, subject, timestamps, Message-ID, reply headers, attachments, attachment hashes, source mailbox, routing data, and related records. Email alone does not establish formal authority when a signed approval record is required.</p>
   </section>
 
   <section>
@@ -70,22 +91,23 @@ Audit-log reference</pre>
   <section>
     <h2>Security and access</h2>
     <ul>
-      <li>Use immutable or write-once storage for finalized records.</li>
-      <li>Use hashes, versioned audit logs, encryption, MFA, backups, and synchronized time.</li>
-      <li>Apply least privilege and separate system administration from approval authority.</li>
+      <li>Use least privilege, MFA, encryption, backups, synchronized time, and versioned audit logs.</li>
       <li>Permit auditors to read evidence without changing it.</li>
+      <li>Protect signing keys and administrative credentials.</li>
+      <li>Test evidence retrieval and backup restoration periodically.</li>
     </ul>
   </section>
 
   <section>
     <h2>Adaptable policy fields</h2>
     <p>Configure retention periods, authorized signers, approval hierarchy, data residency, privacy consent, community review, redaction rules, release authority, emergency access, and applicable Indigenous data-governance requirements.</p>
-    <p>OCAP® principles and community data rules should be defined with the applicable First Nation, organization, or data steward. A self-issued certificate or email alone does not establish authority.</p>
+    <p>OCAP® principles and community data rules should be defined with the applicable First Nation, organization, or data steward. A self-issued certificate or email alone does not establish authority, consent, or ownership.</p>
   </section>
 
   <section>
     <h2>Policy statement</h2>
-    <p><strong>Every approved OSIS document must be attributable, versioned, time-stamped, tamper-evident, retrievable, and linked to its approval and signature evidence. Email and metadata must be preserved according to applicable privacy, access-to-information, records-management, and community data-governance requirements.</strong></p>
+    <p><strong>Every approved OSIS document must be attributable, versioned, time-stamped, tamper-evident, retrievable, and linked to its approval and signature evidence. Email and metadata must be preserved when they form part of the record.</strong></p>
+    <p>This framework supports operational governance and lawful disclosure; it does not replace legal advice or jurisdiction-specific requirements.</p>
   </section>
 </main>
 </body>
