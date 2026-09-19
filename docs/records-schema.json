@@ -45,7 +45,7 @@
     "storage_location": { "type": "string", "description": "Storage URI or path for the record artifact." },
     "access_controls": { "type": ["array", "null"], "items": { "type": "string" } },
     "legal_hold": { "type": "boolean", "default": false },
-    "decision": { "type": ["string", "null"], "enum": ["Go", "No-go", "Pilot only", "null"] },
+    "decision": { "type": ["string", "null"], "enum": ["Go", "No-go", "Pilot only", null] },
     "decision_rationale": { "type": ["string", "null"] },
     "release_identifier": { "type": ["string", "null"] },
     "evidence_links": { "type": ["array", "null"], "items": { "type": "string" } },
