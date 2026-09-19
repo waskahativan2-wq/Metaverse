@@ -5,9 +5,9 @@
   "type": "object",
   "required": ["record_id", "title", "document_type", "version", "status", "created_by", "created_at", "owner", "classification", "source_hash", "audit_log_reference", "storage_location"],
   "properties": {
-    "record_id": { "type": "string", "description": "Unique identifier for the record." },
+    "record_id": { "type": "string" },
     "title": { "type": "string" },
-    "document_type": { "type": "string", "enum": ["document", "email", "approval", "signature", "policy", "report", "attachment", "metadata", "request", "security_evidence", "safety_moderation", "ai_mixed_reality_evidence", "reliability_evidence", "release_authorization"] },
+    "document_type": { "type": "string", "enum": ["document", "email", "approval", "signature", "policy", "report", "attachment", "metadata", "request", "security_evidence", "safety_moderation", "ai_mixed_reality_evidence", "reliability_evidence", "release_authorization", "trust_evidence"] },
     "version": { "type": "string" },
     "status": { "type": "string", "enum": ["draft", "review", "verification", "approved", "signed", "archived", "rejected", "legal_hold"] },
     "created_by": { "type": "string" },
@@ -26,10 +26,10 @@
     "signer_role": { "type": ["string", "null"] },
     "identity_verification_method": { "type": ["string", "null"] },
     "signed_at": { "type": ["string", "null"], "format": "date-time" },
-    "source_hash": { "type": "string", "description": "SHA-256 hash of the source artifact or signed content." },
+    "source_hash": { "type": "string" },
     "previous_hash": { "type": ["string", "null"] },
     "audit_log_reference": { "type": "string" },
-    "storage_location": { "type": "string", "description": "Storage URI or path for the record artifact." },
+    "storage_location": { "type": "string" },
     "access_controls": { "type": ["array", "null"], "items": { "type": "string" } },
     "legal_hold": { "type": "boolean", "default": false },
     "decision": { "type": ["string", "null"], "enum": ["Go", "No-go", "Pilot only", null] },
@@ -40,53 +40,97 @@
     "rollback_trigger": { "type": ["string", "null"] },
     "next_review_date": { "type": ["string", "null"], "format": "date-time" },
     "approvers": { "type": ["array", "null"], "items": { "type": "object", "required": ["signer_name", "signer_role", "approval_status"], "properties": { "signer_name": { "type": "string" }, "signer_role": { "type": "string" }, "approval_status": { "type": "string" }, "identity_verification_method": { "type": ["string", "null"] }, "signed_at": { "type": ["string", "null"], "format": "date-time" }, "comments": { "type": ["string", "null"] } }, "additionalProperties": true } },
-    "governance_evidence": { "type": ["object", "null"], "description": "Links Indigenous/community governance evidence with applicable Canadian constitutional, federal, provincial, treaty, and rights-based review.", "additionalProperties": true },
-    "security_evidence": { "type": ["object", "null"], "description": "Security evidence supports, but does not replace, governance, privacy, legal, and community authority.", "additionalProperties": true },
-    "safety_moderation": { "type": ["object", "null"], "description": "Safety and moderation evidence supports governance, privacy, legal, and operational review.", "additionalProperties": true },
-    "mr_ai_evidence": { "type": ["object", "null"], "description": "AI and mixed-reality evidence captures processing and human verification without granting AI automatic authority.", "additionalProperties": true },
-    "reliability_evidence": {
+    "governance_evidence": { "type": ["object", "null"], "additionalProperties": true },
+    "security_evidence": { "type": ["object", "null"], "additionalProperties": true },
+    "safety_moderation": { "type": ["object", "null"], "additionalProperties": true },
+    "mr_ai_evidence": { "type": ["object", "null"], "additionalProperties": true },
+    "reliability_evidence": { "type": ["object", "null"], "additionalProperties": true },
+    "launch_evidence": {
       "type": ["object", "null"],
-      "description": "Functional, performance, availability, recovery, security, privacy, safety, and accessibility evidence for a specific release and environment.",
       "properties": {
-        "system": {
-          "type": "object",
-          "properties": {
-            "system_id": { "type": ["string", "null"] },
-            "release_identifier": { "type": ["string", "null"] },
-            "environment": { "type": ["string", "null"], "enum": ["production", "staging", "test", "development", null] }
-          },
-          "additionalProperties": true
-        },
-        "testing": {
-          "type": "object",
-          "properties": {
-            "functional": { "type": "object", "properties": { "tests": { "type": "integer", "minimum": 0 }, "passed": { "type": "integer", "minimum": 0 }, "failed": { "type": "integer", "minimum": 0 } }, "additionalProperties": true },
-            "performance": { "type": "object", "properties": { "latency_ms": { "type": ["number", "null"], "minimum": 0 }, "throughput": { "type": ["number", "null"], "minimum": 0 }, "jitter_ms": { "type": ["number", "null"], "minimum": 0 } }, "additionalProperties": true },
-            "availability": { "type": "object", "properties": { "target": { "type": ["number", "null"], "minimum": 0, "maximum": 1 }, "measured": { "type": ["number", "null"], "minimum": 0, "maximum": 1 } }, "additionalProperties": true },
-            "recovery": { "type": "object", "properties": { "backup_test": { "type": "string" }, "restore_test": { "type": "string" }, "rollback_test": { "type": "string" } }, "additionalProperties": true },
-            "security": { "type": "string" },
-            "privacy": { "type": "string" },
-            "safety": { "type": "string" },
-            "accessibility": { "type": "string" }
-          },
-          "additionalProperties": true
-        },
-        "defects": { "type": "object", "properties": { "critical": { "type": "integer", "minimum": 0 }, "high": { "type": "integer", "minimum": 0 }, "medium": { "type": "integer", "minimum": 0 }, "low": { "type": "integer", "minimum": 0 }, "open_exceptions": { "type": "array", "items": { "type": "string" } } }, "additionalProperties": true },
-        "integrity": { "type": "object", "properties": { "test_artifact_hash": { "type": ["string", "null"] }, "audit_log_reference": { "type": ["string", "null"] } }, "additionalProperties": true },
-        "reliability_decision": { "type": "string", "enum": ["PENDING", "VERIFIED", "EXCEPTION", "BLOCKED"] }
+        "release": { "type": ["object", "null"], "additionalProperties": true },
+        "evidence": { "type": ["object", "null"], "additionalProperties": true },
+        "gates": { "type": ["object", "null"], "additionalProperties": true },
+        "approval": { "type": ["object", "null"], "additionalProperties": true },
+        "integrity": { "type": ["object", "null"], "additionalProperties": true },
+        "launch_readiness": { "type": "string", "enum": ["PENDING", "GO", "NO-GO", "PILOT_ONLY"] }
       },
       "additionalProperties": true
     },
-    "launch_evidence": {
+    "integrity_signature": {
       "type": ["object", "null"],
-      "description": "Release-control evidence linking all mandatory governance and engineering gates. A GO result requires every mandatory gate, rollback testing, signed approval, and no unresolved critical exception.",
+      "description": "Final trust layer connecting canonical records, hashes, signatures, identity, authority, audit, and launch decisions. Cryptographic verification does not itself establish governance authority.",
       "properties": {
-        "release": { "type": "object", "properties": { "release_identifier": { "type": ["string", "null"] }, "environment": { "type": ["string", "null"], "enum": ["production", "staging", "test", "development", null] } }, "additionalProperties": true },
-        "evidence": { "type": "object", "properties": { "governance": { "type": ["string", "null"] }, "legal": { "type": ["string", "null"] }, "privacy": { "type": ["string", "null"] }, "security": { "type": ["string", "null"] }, "safety_moderation": { "type": ["string", "null"] }, "ai_mr": { "type": ["string", "null"] }, "reliability": { "type": ["string", "null"] } }, "additionalProperties": true },
-        "gates": { "type": "object", "properties": { "authority_verified": { "type": "boolean" }, "legal_review_complete": { "type": "boolean" }, "privacy_review_complete": { "type": "boolean" }, "security_verified": { "type": "boolean" }, "safety_verified": { "type": "boolean" }, "ai_mr_verified": { "type": "boolean" }, "reliability_verified": { "type": "boolean" }, "rollback_tested": { "type": "boolean" } }, "additionalProperties": true },
-        "approval": { "type": "object", "properties": { "decision": { "type": "string", "enum": ["GO", "NO-GO", "PILOT_ONLY"] }, "approval_status": { "type": "string" }, "signature_status": { "type": "string" }, "signer_name": { "type": ["string", "null"] }, "signed_at": { "type": ["string", "null"], "format": "date-time" } }, "additionalProperties": true },
-        "integrity": { "type": "object", "properties": { "package_hash": { "type": ["string", "null"] }, "audit_log_reference": { "type": ["string", "null"] } }, "additionalProperties": true },
-        "launch_readiness": { "type": "string", "enum": ["PENDING", "GO", "NO-GO", "PILOT_ONLY"] }
+        "subject": {
+          "type": "object",
+          "required": ["record_id", "document_version"],
+          "properties": {
+            "record_id": { "type": "string" },
+            "document_version": { "type": "string" },
+            "release_identifier": { "type": ["string", "null"] }
+          },
+          "additionalProperties": true
+        },
+        "integrity": {
+          "type": "object",
+          "required": ["canonicalization", "hash_algorithm", "source_hash"],
+          "properties": {
+            "canonicalization": { "type": "string" },
+            "hash_algorithm": { "type": "string", "const": "SHA-256" },
+            "source_hash": { "type": "string", "pattern": "^sha256:[A-Fa-f0-9]+$" },
+            "hash_created_at": { "type": ["string", "null"], "format": "date-time" },
+            "previous_hash": { "type": ["string", "null"] },
+            "chain_position": { "type": ["integer", "null"], "minimum": 0 }
+          },
+          "additionalProperties": true
+        },
+        "signature": {
+          "type": "object",
+          "required": ["signature_status"],
+          "properties": {
+            "signature_status": { "type": "string", "enum": ["UNSIGNED", "SIGNED", "REVOKED", "INVALID"] },
+            "signer_name": { "type": ["string", "null"] },
+            "signer_role": { "type": ["string", "null"] },
+            "identity_verification_method": { "type": ["string", "null"] },
+            "certificate_reference": { "type": ["string", "null"] },
+            "public_key_reference": { "type": ["string", "null"] },
+            "signature_algorithm": { "type": ["string", "null"] },
+            "signature_value_reference": { "type": ["string", "null"] },
+            "signed_at": { "type": ["string", "null"], "format": "date-time" }
+          },
+          "additionalProperties": true
+        },
+        "verification": {
+          "type": "object",
+          "properties": {
+            "hash_verified": { "type": "boolean" },
+            "signature_verified": { "type": "boolean" },
+            "signer_authority_verified": { "type": "boolean" },
+            "document_unchanged": { "type": "boolean" },
+            "verification_method": { "type": ["string", "null"] },
+            "verified_at": { "type": ["string", "null"], "format": "date-time" },
+            "verified_by": { "type": ["string", "null"] }
+          },
+          "additionalProperties": true
+        },
+        "audit": {
+          "type": "object",
+          "properties": {
+            "audit_log_reference": { "type": "string" },
+            "storage_location": { "type": "string" },
+            "access_log_reference": { "type": ["string", "null"] }
+          },
+          "additionalProperties": true
+        },
+        "decision": {
+          "type": "object",
+          "properties": {
+            "integrity_status": { "type": "string", "enum": ["PENDING", "VERIFIED", "FAILED"] },
+            "signature_status": { "type": "string", "enum": ["PENDING", "VERIFIED", "FAILED"] },
+            "authorization_status": { "type": "string", "enum": ["NOT_AUTHORIZED", "AUTHORIZED", "REVOKED"] }
+          },
+          "additionalProperties": true
+        }
       },
       "additionalProperties": true
     }
