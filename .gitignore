@@ -1,16 +1,67 @@
+# JetBrains / MPS project files
 workspace.xml
+*.iws
+*.iml
+.idea/
 junitvmwatcher*.properties
 build.properties
 
-# generated java classes and java source files
-#   manually add any custom artifacts that can't be generated from the models
-#   http://confluence.jetbrains.com/display/MPSD25/HowTo+--+MPS+and+Git
+# Generated Java classes and Java source files
+# Manually add custom artifacts that cannot be generated from the models.
+# http://confluence.jetbrains.com/display/MPSD25/HowTo+--+MPS+and+Git
 classes_gen
 source_gen
 source_gen.caches
 
-# generated test code and test results
+# Generated test code and test results
 test_gen
 test_gen.caches
 TEST-*.xml
 junit*.properties
+
+# Build and packaging output
+build/
+out/
+target/
+dist/
+*.class
+*.jar
+*.war
+*.ear
+
+# Java / Gradle / Maven local state
+.gradle/
+.project
+.classpath
+.settings/
+
+# Node and frontend tooling
+node_modules/
+.npm/
+.yarn/
+.pnpm-store/
+coverage/
+.cache/
+.parcel-cache/
+.vite/
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+*.local
+
+# Logs and runtime output
+*.log
+logs/
+
+# Operating-system metadata
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
