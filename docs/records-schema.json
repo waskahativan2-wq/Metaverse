@@ -67,6 +67,58 @@
         },
         "additionalProperties": true
       }
+    },
+    "governance_evidence": {
+      "type": ["object", "null"],
+      "description": "Links Indigenous/community governance evidence with applicable Canadian constitutional, federal, provincial, treaty, and rights-based review. It records issues for review and does not itself determine legal authority.",
+      "properties": {
+        "indigenous_governance": {
+          "type": ["object", "null"],
+          "properties": {
+            "community": { "type": ["string", "null"] },
+            "authority": { "type": ["string", "null"] },
+            "instrument": { "type": ["string", "null"], "enum": ["bylaw", "resolution", "policy", "custom_code", "procedure", "other", null] },
+            "community_values": { "type": ["array", "null"], "items": { "type": "string" } },
+            "elders_or_knowledge_holders": { "type": ["array", "null"], "items": { "type": "string" } },
+            "community_consultation": { "type": ["array", "null"], "items": { "type": "string" } },
+            "evidence_links": { "type": ["array", "null"], "items": { "type": "string" } }
+          },
+          "additionalProperties": true
+        },
+        "canadian_legal": {
+          "type": ["object", "null"],
+          "properties": {
+            "constitutional_framework": { "type": ["array", "null"], "items": { "type": "string" } },
+            "section_35_review": { "type": ["string", "null"], "enum": ["required", "completed", "not_applicable", "pending", null] },
+            "federal_legislation": { "type": ["array", "null"], "items": { "type": "string" } },
+            "provincial_legislation": { "type": ["array", "null"], "items": { "type": "string" } },
+            "treaty_or_agreement": { "type": ["array", "null"], "items": { "type": "string" } },
+            "court_authority": { "type": ["array", "null"], "items": { "type": "string" } },
+            "reviewer": { "type": ["string", "null"] },
+            "evidence_links": { "type": ["array", "null"], "items": { "type": "string" } }
+          },
+          "additionalProperties": true
+        },
+        "compatibility": {
+          "type": ["object", "null"],
+          "properties": {
+            "jurisdiction_verified": { "type": "boolean" },
+            "authority_verified": { "type": "boolean" },
+            "rights_reviewed": { "type": "boolean" },
+            "conflict_identified": { "type": "boolean" },
+            "conflict_description": { "type": ["string", "null"] },
+            "legal_review": { "type": "string", "enum": ["pending", "in_review", "complete", "not_applicable"] },
+            "community_review": { "type": "string", "enum": ["pending", "in_review", "complete", "not_applicable"] },
+            "resolution_record_ids": { "type": ["array", "null"], "items": { "type": "string" } }
+          },
+          "additionalProperties": true
+        },
+        "decision_chain": {
+          "type": ["array", "null"],
+          "items": { "type": "string", "enum": ["authority", "indigenous_governance_evidence", "canadian_legal_evidence", "rights_analysis", "consultation", "decision", "verification", "implementation", "audit", "review"] }
+        }
+      },
+      "additionalProperties": true
     }
   },
   "additionalProperties": true
