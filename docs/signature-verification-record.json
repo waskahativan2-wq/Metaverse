@@ -1,0 +1,69 @@
+{
+  "record_id": "FLFN-SIGNATURE-VERIFICATION-2026-0001",
+  "title": "Signature and Authority Verification Record",
+  "document_type": "trust_evidence",
+  "version": "1.0.0",
+  "status": "verification",
+  "approval_status": "pending",
+  "signature_status": "unsigned",
+  "decision": "No-go",
+  "subject": {
+    "record_id": "FLFN-LAUNCH-APPROVAL-2026-0001",
+    "document_version": "1.0.0",
+    "release_identifier": "pending"
+  },
+  "authority": {
+    "signer_name": null,
+    "signer_role": null,
+    "authority_instrument": null,
+    "authority_record_id": null,
+    "jurisdiction": null,
+    "scope": null,
+    "effective_date": null,
+    "expiry_date": null,
+    "identity_verified": false,
+    "authority_verified": false
+  },
+  "evidence_package": {
+    "canonicalization_method": null,
+    "hash_algorithm": "SHA-256",
+    "package_hash": null,
+    "hash_created_at": null
+  },
+  "signature": {
+    "method": null,
+    "algorithm": null,
+    "certificate_reference": null,
+    "public_key_reference": null,
+    "signature_value_reference": null,
+    "signed_at": null
+  },
+  "independent_verification": {
+    "verifier_name": null,
+    "verifier_role": null,
+    "identity_verified": false,
+    "authority_verified": false,
+    "hash_verified": false,
+    "signature_verified": false,
+    "document_unchanged": false,
+    "verified_at": null,
+    "audit_log_reference": null
+  },
+  "integrity": {
+    "previous_hash": null,
+    "storage_location": null,
+    "access_log_reference": null
+  },
+  "authorization": {
+    "authorization_status": "NOT_AUTHORIZED",
+    "launch_status": "blocked",
+    "blocking_reasons": [
+      "Verified signer identity is missing",
+      "Signer role and authority instrument are missing",
+      "Final evidence-package SHA-256 hash is missing",
+      "Signature and certificate/key references are missing",
+      "Signature timestamp is missing",
+      "Independent signature and authority verification is missing"
+    ]
+  }
+}
