@@ -3,24 +3,11 @@
   "$id": "https://example.com/schemas/osis-record.schema.json",
   "title": "OSIS Record",
   "type": "object",
-  "required": [
-    "record_id",
-    "title",
-    "document_type",
-    "version",
-    "status",
-    "created_by",
-    "created_at",
-    "owner",
-    "classification",
-    "source_hash",
-    "audit_log_reference",
-    "storage_location"
-  ],
+  "required": ["record_id", "title", "document_type", "version", "status", "created_by", "created_at", "owner", "classification", "source_hash", "audit_log_reference", "storage_location"],
   "properties": {
     "record_id": { "type": "string", "description": "Unique identifier for the record." },
     "title": { "type": "string" },
-    "document_type": { "type": "string", "enum": ["document", "email", "approval", "signature", "policy", "report", "attachment", "metadata", "request"] },
+    "document_type": { "type": "string", "enum": ["document", "email", "approval", "signature", "policy", "report", "attachment", "metadata", "request", "security_evidence"] },
     "version": { "type": "string" },
     "status": { "type": "string", "enum": ["draft", "review", "approved", "signed", "archived", "rejected", "legal_hold"] },
     "created_by": { "type": "string" },
@@ -70,52 +57,103 @@
     },
     "governance_evidence": {
       "type": ["object", "null"],
-      "description": "Links Indigenous/community governance evidence with applicable Canadian constitutional, federal, provincial, treaty, and rights-based review. It records issues for review and does not itself determine legal authority.",
+      "description": "Links Indigenous/community governance evidence with applicable Canadian constitutional, federal, provincial, treaty, and rights-based review.",
       "properties": {
-        "indigenous_governance": {
+        "indigenous_governance": { "type": ["object", "null"], "additionalProperties": true },
+        "canadian_legal": { "type": ["object", "null"], "additionalProperties": true },
+        "compatibility": { "type": ["object", "null"], "additionalProperties": true },
+        "decision_chain": { "type": ["array", "null"], "items": { "type": "string" } }
+      },
+      "additionalProperties": true
+    },
+    "security_evidence": {
+      "type": ["object", "null"],
+      "description": "Security evidence supports, but does not replace, governance, privacy, legal, and community authority.",
+      "properties": {
+        "jurisdiction": {
           "type": ["object", "null"],
           "properties": {
-            "community": { "type": ["string", "null"] },
+            "nation": { "type": ["string", "null"] },
+            "province": { "type": ["string", "null"] },
+            "country": { "type": ["string", "null"] }
+          },
+          "additionalProperties": true
+        },
+        "governance_context": {
+          "type": ["object", "null"],
+          "properties": {
             "authority": { "type": ["string", "null"] },
-            "instrument": { "type": ["string", "null"], "enum": ["bylaw", "resolution", "policy", "custom_code", "procedure", "other", null] },
-            "community_values": { "type": ["array", "null"], "items": { "type": "string" } },
-            "elders_or_knowledge_holders": { "type": ["array", "null"], "items": { "type": "string" } },
-            "community_consultation": { "type": ["array", "null"], "items": { "type": "string" } },
-            "evidence_links": { "type": ["array", "null"], "items": { "type": "string" } }
+            "decision_reference": { "type": ["string", "null"] },
+            "instrument_reference": { "type": ["string", "null"] }
           },
           "additionalProperties": true
         },
-        "canadian_legal": {
+        "security": {
           "type": ["object", "null"],
           "properties": {
-            "constitutional_framework": { "type": ["array", "null"], "items": { "type": "string" } },
-            "section_35_review": { "type": ["string", "null"], "enum": ["required", "completed", "not_applicable", "pending", null] },
-            "federal_legislation": { "type": ["array", "null"], "items": { "type": "string" } },
-            "provincial_legislation": { "type": ["array", "null"], "items": { "type": "string" } },
-            "treaty_or_agreement": { "type": ["array", "null"], "items": { "type": "string" } },
-            "court_authority": { "type": ["array", "null"], "items": { "type": "string" } },
-            "reviewer": { "type": ["string", "null"] },
-            "evidence_links": { "type": ["array", "null"], "items": { "type": "string" } }
+            "identity_verification": { "type": "string" },
+            "authentication": { "type": "string" },
+            "authorization": { "type": "string" },
+            "least_privilege": { "type": "string" },
+            "access_review": { "type": "string" },
+            "encryption": { "type": "string" },
+            "backup": { "type": "string" },
+            "recovery_test": { "type": "string" },
+            "incident_response": { "type": "string" },
+            "physical_security": { "type": "string" },
+            "business_continuity": { "type": "string" }
           },
           "additionalProperties": true
         },
-        "compatibility": {
+        "audit": {
           "type": ["object", "null"],
           "properties": {
-            "jurisdiction_verified": { "type": "boolean" },
-            "authority_verified": { "type": "boolean" },
-            "rights_reviewed": { "type": "boolean" },
-            "conflict_identified": { "type": "boolean" },
-            "conflict_description": { "type": ["string", "null"] },
-            "legal_review": { "type": "string", "enum": ["pending", "in_review", "complete", "not_applicable"] },
-            "community_review": { "type": "string", "enum": ["pending", "in_review", "complete", "not_applicable"] },
-            "resolution_record_ids": { "type": ["array", "null"], "items": { "type": "string" } }
+            "event_logging": { "type": "string" },
+            "log_integrity": { "type": "string" },
+            "timestamp_standard": { "type": "string", "const": "ISO-8601 UTC" },
+            "audit_reference": { "type": ["string", "null"] },
+            "previous_record_hash": { "type": ["string", "null"] },
+            "current_record_hash": { "type": ["string", "null"] }
           },
           "additionalProperties": true
         },
-        "decision_chain": {
-          "type": ["array", "null"],
-          "items": { "type": "string", "enum": ["authority", "indigenous_governance_evidence", "canadian_legal_evidence", "rights_analysis", "consultation", "decision", "verification", "implementation", "audit", "review"] }
+        "privacy": {
+          "type": ["object", "null"],
+          "properties": {
+            "personal_information_present": { "type": "boolean" },
+            "privacy_review": { "type": "string" },
+            "access_classification": { "type": "string" },
+            "retention_rule": { "type": ["string", "null"] }
+          },
+          "additionalProperties": true
+        },
+        "evidence": {
+          "type": ["object", "null"],
+          "properties": {
+            "evidence_links": { "type": ["array", "null"], "items": { "type": "string" } },
+            "security_test_results": { "type": ["array", "null"], "items": { "type": "string" } },
+            "access_reviews": { "type": ["array", "null"], "items": { "type": "string" } },
+            "incident_records": { "type": ["array", "null"], "items": { "type": "string" } },
+            "exceptions": { "type": ["array", "null"], "items": { "type": "string" } }
+          },
+          "additionalProperties": true
+        },
+        "decision": {
+          "type": ["object", "null"],
+          "properties": {
+            "security_status": { "type": "string", "enum": ["NOT_ASSESSED", "IN_REVIEW", "VERIFIED", "EXCEPTION", "BLOCKED", "REVOKED"] },
+            "release_status": { "type": "string", "enum": ["READY", "BLOCKED", "REVOKED"] },
+            "approval_status": { "type": "string" }
+          },
+          "additionalProperties": true
+        },
+        "review": {
+          "type": ["object", "null"],
+          "properties": {
+            "review_owner": { "type": ["string", "null"] },
+            "next_review_date": { "type": ["string", "null"], "format": "date-time" }
+          },
+          "additionalProperties": true
         }
       },
       "additionalProperties": true
