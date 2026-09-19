@@ -7,7 +7,7 @@
   "properties": {
     "record_id": { "type": "string", "description": "Unique identifier for the record." },
     "title": { "type": "string" },
-    "document_type": { "type": "string", "enum": ["document", "email", "approval", "signature", "policy", "report", "attachment", "metadata", "request", "security_evidence"] },
+    "document_type": { "type": "string", "enum": ["document", "email", "approval", "signature", "policy", "report", "attachment", "metadata", "request", "security_evidence", "safety_moderation", "ai_mixed_reality_evidence"] },
     "version": { "type": "string" },
     "status": { "type": "string", "enum": ["draft", "review", "approved", "signed", "archived", "rejected", "legal_hold"] },
     "created_by": { "type": "string" },
@@ -70,91 +70,43 @@
       "type": ["object", "null"],
       "description": "Security evidence supports, but does not replace, governance, privacy, legal, and community authority.",
       "properties": {
-        "jurisdiction": {
-          "type": ["object", "null"],
-          "properties": {
-            "nation": { "type": ["string", "null"] },
-            "province": { "type": ["string", "null"] },
-            "country": { "type": ["string", "null"] }
-          },
-          "additionalProperties": true
-        },
-        "governance_context": {
-          "type": ["object", "null"],
-          "properties": {
-            "authority": { "type": ["string", "null"] },
-            "decision_reference": { "type": ["string", "null"] },
-            "instrument_reference": { "type": ["string", "null"] }
-          },
-          "additionalProperties": true
-        },
-        "security": {
-          "type": ["object", "null"],
-          "properties": {
-            "identity_verification": { "type": "string" },
-            "authentication": { "type": "string" },
-            "authorization": { "type": "string" },
-            "least_privilege": { "type": "string" },
-            "access_review": { "type": "string" },
-            "encryption": { "type": "string" },
-            "backup": { "type": "string" },
-            "recovery_test": { "type": "string" },
-            "incident_response": { "type": "string" },
-            "physical_security": { "type": "string" },
-            "business_continuity": { "type": "string" }
-          },
-          "additionalProperties": true
-        },
-        "audit": {
-          "type": ["object", "null"],
-          "properties": {
-            "event_logging": { "type": "string" },
-            "log_integrity": { "type": "string" },
-            "timestamp_standard": { "type": "string", "const": "ISO-8601 UTC" },
-            "audit_reference": { "type": ["string", "null"] },
-            "previous_record_hash": { "type": ["string", "null"] },
-            "current_record_hash": { "type": ["string", "null"] }
-          },
-          "additionalProperties": true
-        },
-        "privacy": {
-          "type": ["object", "null"],
-          "properties": {
-            "personal_information_present": { "type": "boolean" },
-            "privacy_review": { "type": "string" },
-            "access_classification": { "type": "string" },
-            "retention_rule": { "type": ["string", "null"] }
-          },
-          "additionalProperties": true
-        },
-        "evidence": {
-          "type": ["object", "null"],
-          "properties": {
-            "evidence_links": { "type": ["array", "null"], "items": { "type": "string" } },
-            "security_test_results": { "type": ["array", "null"], "items": { "type": "string" } },
-            "access_reviews": { "type": ["array", "null"], "items": { "type": "string" } },
-            "incident_records": { "type": ["array", "null"], "items": { "type": "string" } },
-            "exceptions": { "type": ["array", "null"], "items": { "type": "string" } }
-          },
-          "additionalProperties": true
-        },
-        "decision": {
-          "type": ["object", "null"],
-          "properties": {
-            "security_status": { "type": "string", "enum": ["NOT_ASSESSED", "IN_REVIEW", "VERIFIED", "EXCEPTION", "BLOCKED", "REVOKED"] },
-            "release_status": { "type": "string", "enum": ["READY", "BLOCKED", "REVOKED"] },
-            "approval_status": { "type": "string" }
-          },
-          "additionalProperties": true
-        },
-        "review": {
-          "type": ["object", "null"],
-          "properties": {
-            "review_owner": { "type": ["string", "null"] },
-            "next_review_date": { "type": ["string", "null"], "format": "date-time" }
-          },
-          "additionalProperties": true
-        }
+        "jurisdiction": { "type": ["object", "null"], "properties": { "nation": { "type": ["string", "null"] }, "province": { "type": ["string", "null"] }, "country": { "type": ["string", "null"] } }, "additionalProperties": true },
+        "governance_context": { "type": ["object", "null"], "properties": { "authority": { "type": ["string", "null"] }, "decision_reference": { "type": ["string", "null"] }, "instrument_reference": { "type": ["string", "null"] } }, "additionalProperties": true },
+        "security": { "type": ["object", "null"], "properties": { "identity_verification": { "type": "string" }, "authentication": { "type": "string" }, "authorization": { "type": "string" }, "least_privilege": { "type": "string" }, "access_review": { "type": "string" }, "encryption": { "type": "string" }, "backup": { "type": "string" }, "recovery_test": { "type": "string" }, "incident_response": { "type": "string" }, "physical_security": { "type": "string" }, "business_continuity": { "type": "string" } }, "additionalProperties": true },
+        "audit": { "type": ["object", "null"], "properties": { "event_logging": { "type": "string" }, "log_integrity": { "type": "string" }, "timestamp_standard": { "type": "string", "const": "ISO-8601 UTC" }, "audit_reference": { "type": ["string", "null"] }, "previous_record_hash": { "type": ["string", "null"] }, "current_record_hash": { "type": ["string", "null"] } }, "additionalProperties": true },
+        "privacy": { "type": ["object", "null"], "properties": { "personal_information_present": { "type": "boolean" }, "privacy_review": { "type": "string" }, "access_classification": { "type": "string" }, "retention_rule": { "type": ["string", "null"] } }, "additionalProperties": true },
+        "evidence": { "type": ["object", "null"], "properties": { "evidence_links": { "type": ["array", "null"], "items": { "type": "string" } }, "security_test_results": { "type": ["array", "null"], "items": { "type": "string" } }, "access_reviews": { "type": ["array", "null"], "items": { "type": "string" } }, "incident_records": { "type": ["array", "null"], "items": { "type": "string" } }, "exceptions": { "type": ["array", "null"], "items": { "type": "string" } } }, "additionalProperties": true },
+        "decision": { "type": ["object", "null"], "properties": { "security_status": { "type": "string", "enum": ["NOT_ASSESSED", "IN_REVIEW", "VERIFIED", "EXCEPTION", "BLOCKED", "REVOKED"] }, "release_status": { "type": "string", "enum": ["READY", "BLOCKED", "REVOKED"] }, "approval_status": { "type": "string" } }, "additionalProperties": true },
+        "review": { "type": ["object", "null"], "properties": { "review_owner": { "type": ["string", "null"] }, "next_review_date": { "type": ["string", "null"], "format": "date-time" } }, "additionalProperties": true }
+      },
+      "additionalProperties": true
+    },
+    "safety_moderation": {
+      "type": ["object", "null"],
+      "description": "Safety and moderation evidence supports governance, privacy, legal, and operational review.",
+      "properties": {
+        "governance": { "type": ["object", "null"], "properties": { "community": { "type": ["string", "null"] }, "jurisdiction": { "type": ["string", "null"] }, "authority_reference": { "type": ["string", "null"] }, "accountable_owner": { "type": ["string", "null"] } }, "additionalProperties": true },
+        "safety": { "type": ["object", "null"], "properties": { "physical_safety": { "type": "string" }, "online_safety": { "type": "string" }, "threat_assessment": { "type": "string" }, "emergency_procedure": { "type": "string" }, "vulnerable_person_safeguards": { "type": "string" }, "youth_safeguards": { "type": "string" } }, "additionalProperties": true },
+        "moderation": { "type": ["object", "null"], "properties": { "community_rules": { "type": "string" }, "prohibited_content": { "type": ["array", "null"], "items": { "type": "string" } }, "restricted_content": { "type": ["array", "null"], "items": { "type": "string" } }, "reporting_enabled": { "type": "boolean" }, "triage_procedure": { "type": "string" }, "moderator_authority": { "type": ["string", "null"] }, "moderator_training": { "type": "string" }, "appeal_process": { "type": "string" }, "escalation_process": { "type": "string" } }, "additionalProperties": true },
+        "evidence": { "type": ["object", "null"], "properties": { "incident_id": { "type": ["string", "null"] }, "reported_at": { "type": ["string", "null"], "format": "date-time" }, "reporter_reference": { "type": ["string", "null"] }, "event_type": { "type": ["string", "null"] }, "evidence_references": { "type": ["array", "null"], "items": { "type": "string" } }, "actions_taken": { "type": ["array", "null"], "items": { "type": "string" } }, "decision_rationale": { "type": ["string", "null"] }, "review_reference": { "type": ["string", "null"] } }, "additionalProperties": true },
+        "privacy": { "type": ["object", "null"], "properties": { "personal_information": { "type": "string" }, "access_control": { "type": "string" }, "disclosure": { "type": "string" }, "retention": { "type": ["string", "null"] } }, "additionalProperties": true },
+        "integrity": { "type": ["object", "null"], "properties": { "timestamp": { "type": ["string", "null"], "format": "date-time" }, "source_hash": { "type": ["string", "null"] }, "previous_hash": { "type": ["string", "null"] }, "audit_log_reference": { "type": ["string", "null"] } }, "additionalProperties": true },
+        "decision": { "type": ["object", "null"], "properties": { "status": { "type": "string", "enum": ["PENDING_REVIEW", "CLOSED", "ESCALATED", "ACTION_TAKEN"] }, "release_impact": { "type": "string", "enum": ["NONE", "LIMITED", "MEDIUM", "HIGH"] } }, "additionalProperties": true }
+      },
+      "additionalProperties": true
+    },
+    "mr_ai_evidence": {
+      "type": ["object", "null"],
+      "description": "AI / mixed-reality evidence captures model processing and human verification without granting AI automatic authority.",
+      "properties": {
+        "context": { "type": ["object", "null"], "properties": { "community": { "type": ["string", "null"] }, "jurisdiction": { "type": ["string", "null"] }, "application": { "type": ["string", "null"] }, "purpose": { "type": ["string", "null"] } }, "additionalProperties": true },
+        "human_authority": { "type": ["object", "null"], "properties": { "responsible_person": { "type": ["string", "null"] }, "decision_authority": { "type": ["string", "null"] }, "human_review_required": { "type": "boolean" }, "human_review_status": { "type": "string" } }, "additionalProperties": true },
+        "ai_system": { "type": ["object", "null"], "properties": { "system_id": { "type": ["string", "null"] }, "model_id": { "type": ["string", "null"] }, "model_version": { "type": ["string", "null"] }, "software_version": { "type": ["string", "null"] }, "configuration_hash": { "type": ["string", "null"] } }, "additionalProperties": true },
+        "mixed_reality": { "type": ["object", "null"], "properties": { "device_id": { "type": ["string", "null"] }, "environment_reference": { "type": ["string", "null"] }, "sensor_sources": { "type": ["array", "null"], "items": { "type": "string" } }, "spatial_data_status": { "type": ["string", "null"] } }, "additionalProperties": true },
+        "evidence": { "type": ["object", "null"], "properties": { "input_references": { "type": ["array", "null"], "items": { "type": "string" } }, "output_reference": { "type": ["string", "null"] }, "source_references": { "type": ["array", "null"], "items": { "type": "string" } }, "confidence": { "type": ["number", "null"] }, "uncertainty": { "type": ["number", "null"] }, "human_verification": { "type": ["string", "null"] } }, "additionalProperties": true },
+        "safety": { "type": ["object", "null"], "properties": { "risk_assessment": { "type": ["string", "null"] }, "moderation_status": { "type": ["string", "null"] }, "privacy_review": { "type": ["string", "null"] }, "security_review": { "type": ["string", "null"] } }, "additionalProperties": true },
+        "integrity": { "type": ["object", "null"], "properties": { "created_at": { "type": ["string", "null"], "format": "date-time" }, "source_hash": { "type": ["string", "null"] }, "previous_hash": { "type": ["string", "null"] }, "audit_log_reference": { "type": ["string", "null"] } }, "additionalProperties": true },
+        "decision": { "type": ["object", "null"], "properties": { "ai_decision_is_binding": { "type": "boolean" }, "human_authorization_required": { "type": "boolean" }, "status": { "type": "string", "enum": ["NOT_AUTHORIZED", "AUTHORIZED", "REVIEW_REQUIRED"] } }, "additionalProperties": true }
       },
       "additionalProperties": true
     }
