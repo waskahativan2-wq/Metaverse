@@ -71,6 +71,25 @@ function normalizePort(value) {
   return Number.isInteger(parsedPort) && parsedPort >= 0 ? parsedPort : 3000;
 }
 
+function classifyRawPath(rawPath) {
+  const segments = rawPath.split('/').filter(Boolean);
+
+  for (const segment of segments) {
+    let decodedSegment;
+    try {
+      decodedSegment = decodeURIComponent(segment);
+    } catch {
+      return 'bad-request';
+    }
+
+    if (decodedSegment === '.' || decodedSegment === '..') {
+      return 'not-found';
+    }
+  }
+
+  return 'ok';
+}
+
 async function fileExists(filePath) {
   try {
     const stat = await fs.stat(filePath);
@@ -82,6 +101,12 @@ async function fileExists(filePath) {
 
 function safeDocsPath(relativePath) {
   const normalizedPath = relativePath.replace(/^\/+/, '');
+  const segments = normalizedPath.split('/').filter(Boolean);
+
+  if (segments.some((segment) => segment === '.' || segment === '..')) {
+    return null;
+  }
+
   const resolvedPath = path.resolve(docsDir, normalizedPath);
   const docsRoot = `${docsDir}${path.sep}`;
 
@@ -148,6 +173,17 @@ async function requestHandler(req, res) {
   const requestTarget = req.url || '/';
   const rawRequestPath = requestTarget.split('?')[0].split('#')[0];
   if (/%(?:2f|5c)/i.test(rawRequestPath)) {
+    await sendBuffer(res, 404, req.method === 'HEAD' ? '' : 'Not Found\n', 'text/plain; charset=utf-8');
+    return;
+  }
+
+  const rawPathStatus = classifyRawPath(rawRequestPath);
+  if (rawPathStatus === 'bad-request') {
+    await sendBuffer(res, 400, req.method === 'HEAD' ? '' : 'Bad Request\n', 'text/plain; charset=utf-8');
+    return;
+  }
+
+  if (rawPathStatus === 'not-found') {
     await sendBuffer(res, 404, req.method === 'HEAD' ? '' : 'Not Found\n', 'text/plain; charset=utf-8');
     return;
   }
