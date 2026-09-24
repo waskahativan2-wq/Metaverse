@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Metaverse Launch Package</title>
+  <meta name="description" content="Executive landing page for the documented OSIS Metaverse launch and finalization package.">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #08111f;
+      --panel: rgba(10, 20, 37, 0.86);
+      --panel-strong: rgba(15, 23, 42, 0.96);
+      --text: #e5eefb;
+      --muted: #a9bbd3;
+      --accent: #7dd3fc;
+      --accent-strong: #38bdf8;
+      --border: rgba(148, 163, 184, 0.2);
+      --shadow: 0 18px 50px rgba(8, 17, 31, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top, rgba(56, 189, 248, 0.18), transparent 32rem),
+        linear-gradient(180deg, #050b16, var(--bg) 48%, #0f172a);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--accent);
+    }
+
+    a:hover,
+    a:focus-visible {
+      color: #bae6fd;
+    }
+
+    a:focus-visible {
+      outline: 3px solid #bae6fd;
+      outline-offset: 3px;
+      text-decoration: underline;
+    }
+
+    .shell {
+      width: min(1120px, calc(100% - 2rem));
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 5rem 0 3rem;
+    }
+
+    .eyebrow,
+    .label {
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    h1,
+    h2,
+    h3 {
+      line-height: 1.15;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 4vw, 4.6rem);
+      max-width: 12ch;
+      margin-top: 0.75rem;
+    }
+
+    .hero {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: 1.6fr 1fr;
+      align-items: end;
+    }
+
+    .lead {
+      color: var(--muted);
+      max-width: 60ch;
+      font-size: 1.08rem;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 1.25rem;
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(16px);
+    }
+
+    .cta-row,
+    .stats,
+    .doc-grid,
+    .principles {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .cta-row {
+      grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+      margin-top: 2rem;
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 3rem;
+      padding: 0.9rem 1.1rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      text-decoration: none;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--accent-strong), #2563eb);
+      color: #03111f;
+    }
+
+    .cta.secondary {
+      background: transparent;
+      color: var(--text);
+      border-color: var(--border);
+    }
+
+    main {
+      padding-bottom: 4rem;
+    }
+
+    section {
+      margin-top: 2rem;
+    }
+
+    .stats {
+      grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+    }
+
+    .stat {
+      padding: 1.25rem;
+      border-radius: 1rem;
+      background: var(--panel-strong);
+      border: 1px solid var(--border);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.5rem;
+      margin-top: 0.35rem;
+    }
+
+    .doc-grid,
+    .principles {
+      grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 1.25rem;
+    }
+
+    .card p,
+    .card ul,
+    .hero p,
+    footer p {
+      color: var(--muted);
+    }
+
+    ul {
+      padding-left: 1.2rem;
+      margin: 0.75rem 0 0;
+    }
+
+    footer {
+      padding: 0 0 3rem;
+    }
+
+    @media (max-width: 860px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="shell">
+    <div class="hero">
+      <div>
+        <p class="eyebrow">Documented launch package</p>
+        <h1>Metaverse governance materials for executive review</h1>
+        <p class="lead">
+          This repository presents the documented launch, policy, and release-control materials for the OSIS Metaverse concept. It is positioned as a governance and finalization package, not as a live production platform.
+        </p>
+        <div class="cta-row" aria-label="Primary navigation">
+          <a class="cta" href="records-policy.html">Review the records policy</a>
+          <a class="cta secondary" href="metaverse-finalization-checklist.md">Open the finalization checklist</a>
+        </div>
+      </div>
+      <aside class="panel" aria-label="Executive summary">
+        <p class="label">Executive summary</p>
+        <p>
+          The repository evidence centers on launch readiness: approval controls, tamper-evident records, signature verification, and release-gating artifacts for a metaverse program concept.
+        </p>
+        <ul>
+          <li>Static GitHub Pages-compatible documentation</li>
+          <li>Formal policy, schema, and approval record references</li>
+          <li>Careful language aligned to documented evidence in the repository</li>
+        </ul>
+      </aside>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section aria-labelledby="highlights-title">
+      <h2 id="highlights-title">What this package contains</h2>
+      <div class="stats">
+        <article class="stat">
+          <span class="label">Policy baseline</span>
+          <strong>Records integrity</strong>
+          <span>Controls for launch records, evidence, signatures, and retention are documented in both HTML and Markdown formats.</span>
+        </article>
+        <article class="stat">
+          <span class="label">Launch gate</span>
+          <strong>Finalization workflow</strong>
+          <span>A comprehensive checklist outlines readiness expectations before a pilot, public release, or production launch.</span>
+        </article>
+        <article class="stat">
+          <span class="label">Evidence model</span>
+          <strong>Structured records</strong>
+          <span>JSON schema and example approval records show how release evidence can be captured and verified.</span>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="docs-title">
+      <h2 id="docs-title">Repository documents</h2>
+      <div class="doc-grid">
+        <article class="card">
+          <h3><a href="records-policy.html">Records policy (HTML)</a></h3>
+          <p>Browser-friendly version of the repository's records policy for approval evidence, tamper-evident storage, and launch controls.</p>
+        </article>
+        <article class="card">
+          <h3><a href="records-policy.md">Records policy (Markdown)</a></h3>
+          <p>Source Markdown for the same policy, suitable for repository review and version control workflows.</p>
+        </article>
+        <article class="card">
+          <h3><a href="metaverse-finalization-checklist.md">Finalization checklist</a></h3>
+          <p>Operational checklist covering governance, safety, privacy, security, accessibility, and launch-day evidence gates.</p>
+        </article>
+        <article class="card">
+          <h3><a href="records-schema.json">Records schema</a></h3>
+          <p>JSON schema describing the approval and evidence record structure referenced by the launch materials.</p>
+        </article>
+        <article class="card">
+          <h3><a href="final-launch-approval-record.json">Launch approval record</a></h3>
+          <p>Example structured record capturing decision details, status, and release metadata for a final launch approval.</p>
+        </article>
+        <article class="card">
+          <h3><a href="signature-verification-record.json">Signature verification record</a></h3>
+          <p>Example verification record documenting signature evidence and related integrity metadata.</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="principles-title">
+      <h2 id="principles-title">Positioning for CXO stakeholders</h2>
+      <div class="principles">
+        <article class="card">
+          <h3>Risk-aware launch framing</h3>
+          <p>The materials emphasize release discipline, jurisdictional review, and evidence-backed approval rather than unverified delivery claims.</p>
+        </article>
+        <article class="card">
+          <h3>Governance-first narrative</h3>
+          <p>Executive readers can quickly assess whether launch controls, records integrity, and review obligations are documented for the concept.</p>
+        </article>
+        <article class="card">
+          <h3>Static-by-design distribution</h3>
+          <p>The landing page is designed for GitHub Pages hosting with no build step, while a separate local Node.js server can serve the same assets when needed.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="shell">
+    <p>
+      Repository: <a href="https://github.com/waskahativan2-wq/Metaverse">waskahativan2-wq/Metaverse</a>. The underlying project materials describe a concept and launch package; they should not be interpreted as a statement of live deployment status.
+    </p>
+  </footer>
+</body>
+</html>

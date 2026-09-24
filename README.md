@@ -4,6 +4,46 @@
 
 > **Concept status:** OSIS is a product and story concept. This README is not legal, medical, safety, accessibility, or regulatory advice.
 
+## Landing page and local preview
+
+- GitHub Pages static landing page: `docs/index.html`
+- Local/server entry point: `index.node.js`
+
+### Run locally
+
+```bash
+node index.node.js
+```
+
+Optional environment variables:
+
+- `PORT` (default `3000`)
+- `HOST` (default `0.0.0.0`)
+
+You can also use:
+
+```bash
+npm start
+```
+
+### Validate locally
+
+```bash
+npm run check
+```
+
+### Deploy with GitHub Pages
+
+GitHub Pages serves static files only and does **not** execute `index.node.js`. The Node server is for local preview or non-Pages hosting.
+
+To publish the landing page from this repository:
+
+1. Push the repository contents to the branch that contains `docs/` (for this repository, that branch is `main`).
+2. In GitHub, open **Settings** → **Pages**.
+3. Set **Source** to **Deploy from a branch**.
+4. Select the publishing branch (for this repository, **`main`**) and folder **`/docs`**.
+5. Save the configuration and wait for GitHub Pages to publish `docs/index.html`.
+
 ## Movie Concept
 
 ### Player One: OSIS Metaverse
