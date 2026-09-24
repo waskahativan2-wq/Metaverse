@@ -129,13 +129,14 @@ async function serveStaticFile(req, res, filePath) {
 
 async function requestHandler(req, res) {
   if (!['GET', 'HEAD'].includes(req.method)) {
+    const body = req.method === 'HEAD' ? '' : 'Method Not Allowed\n';
     res.writeHead(405, {
       Allow: 'GET, HEAD',
-      'Content-Length': '19',
+      'Content-Length': String(Buffer.byteLength(body)),
       'Content-Type': 'text/plain; charset=utf-8',
       'X-Content-Type-Options': 'nosniff',
     });
-    res.end(req.method === 'HEAD' ? undefined : 'Method Not Allowed\n');
+    res.end(req.method === 'HEAD' ? undefined : body);
     return;
   }
 
