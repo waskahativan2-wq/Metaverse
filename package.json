@@ -1,0 +1,10 @@
+{
+  "name": "metaverse-landing",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Static GitHub Pages landing page and local Node.js server for the Metaverse repository.",
+  "scripts": {
+    "start": "node index.node.js",
+    "check": "node --check index.node.js"
+  }
+}
