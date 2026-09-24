@@ -66,6 +66,11 @@ function getContentType(filePath) {
   return contentTypes.get(path.extname(filePath).toLowerCase()) || 'application/octet-stream';
 }
 
+function normalizePort(value) {
+  const parsedPort = Number.parseInt(value, 10);
+  return Number.isInteger(parsedPort) && parsedPort >= 0 ? parsedPort : 3000;
+}
+
 async function fileExists(filePath) {
   try {
     const stat = await fs.stat(filePath);
@@ -176,7 +181,7 @@ async function requestHandler(req, res) {
 
 function startServer({
   host = process.env.HOST || '0.0.0.0',
-  port = Number.parseInt(process.env.PORT || '3000', 10),
+  port = normalizePort(process.env.PORT || '3000'),
 } = {}) {
   const server = http.createServer((req, res) => {
     requestHandler(req, res).catch((error) => {

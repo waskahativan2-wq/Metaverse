@@ -38,10 +38,10 @@ GitHub Pages serves static files only and does **not** execute `index.node.js`. 
 
 To publish the landing page from this repository:
 
-1. Push the repository contents to the `main` branch.
+1. Push the repository contents to the branch that contains `docs/` (for this repository, that branch is `main`).
 2. In GitHub, open **Settings** → **Pages**.
 3. Set **Source** to **Deploy from a branch**.
-4. Select branch **`main`** and folder **`/docs`**.
+4. Select the publishing branch (for this repository, **`main`**) and folder **`/docs`**.
 5. Save the configuration and wait for GitHub Pages to publish `docs/index.html`.
 
 ## Movie Concept
