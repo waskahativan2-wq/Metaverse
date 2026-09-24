@@ -140,14 +140,16 @@ async function requestHandler(req, res) {
     return;
   }
 
+  const requestTarget = req.url || '/';
+  const rawRequestPath = requestTarget.split('?')[0].split('#')[0];
+  if (/%(?:2f|5c)/i.test(rawRequestPath)) {
+    await sendBuffer(res, 404, req.method === 'HEAD' ? '' : 'Not Found\n', 'text/plain; charset=utf-8');
+    return;
+  }
+
   let pathname;
   try {
-    const rawPathname = new URL(req.url || '/', 'http://localhost').pathname;
-    if (/%(?:2f|5c)/i.test(rawPathname)) {
-      await sendBuffer(res, 404, req.method === 'HEAD' ? '' : 'Not Found\n', 'text/plain; charset=utf-8');
-      return;
-    }
-
+    const rawPathname = new URL(requestTarget, 'http://localhost').pathname;
     pathname = decodeURIComponent(rawPathname);
   } catch {
     await sendBuffer(res, 400, req.method === 'HEAD' ? '' : 'Bad Request\n', 'text/plain; charset=utf-8');
