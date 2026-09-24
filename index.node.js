@@ -141,7 +141,13 @@ async function requestHandler(req, res) {
 
   let pathname;
   try {
-    pathname = decodeURIComponent(new URL(req.url || '/', 'http://localhost').pathname);
+    const rawPathname = new URL(req.url || '/', 'http://localhost').pathname;
+    if (/%(?:2f|5c)/i.test(rawPathname)) {
+      await sendBuffer(res, 404, req.method === 'HEAD' ? '' : 'Not Found\n', 'text/plain; charset=utf-8');
+      return;
+    }
+
+    pathname = decodeURIComponent(rawPathname);
   } catch {
     await sendBuffer(res, 400, req.method === 'HEAD' ? '' : 'Bad Request\n', 'text/plain; charset=utf-8');
     return;
