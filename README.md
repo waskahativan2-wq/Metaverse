@@ -52,6 +52,16 @@ OSIS may support fantasy competitions, predictions, sponsorships, and regulated 
 
 If a region does not permit a feature, OSIS disables it there and offers a compliant alternative such as free-to-play predictions or non-cash sports challenges.
 
+### Predictions
+
+Prediction features default to free-to-play, non-cash participation unless a separately licensed and approved offering is enabled for a specific jurisdiction. Any prediction experience must:
+
+- publish clear eligibility, scoring, tie-break, deadline, prize, and dispute rules before entry;
+- avoid misleading odds, hidden advantages, insider participation, match manipulation, or pay-to-win mechanics;
+- separate promotional activity from gameplay and clearly label sponsored or branded prediction events;
+- apply age, identity, geolocation, fraud, and abuse controls where required by law or platform policy; and
+- disable or replace the feature with a compliant alternative whenever local law, licensing, or rights clearance is incomplete.
+
 ## Body Rights and Digital Ownership
 
 OSIS treats an avatar body as a form of digital identity. Players control how their avatars appear, move, and are represented. The world protects:
