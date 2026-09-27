@@ -56,6 +56,14 @@ class LaunchApprovalGraphQLTests(unittest.TestCase):
         self.assertEqual(sorted(indexed_records), ["A-1", "B-2"])
         self.assertEqual(indexed_records["B-2"]["title"], "Second")
 
+        tuple_indexed_records = _index_canonical_records(
+            (
+                {"record_id": "C-3", "title": "Third"},
+                {"record_id": "D-4", "title": "Fourth"},
+            )
+        )
+        self.assertEqual(sorted(tuple_indexed_records), ["C-3", "D-4"])
+
     def test_record_index_supports_single_record_payloads(self) -> None:
         indexed_records = _index_canonical_records(
             {"record_id": KNOWN_RECORD_ID, "title": "Canonical"}

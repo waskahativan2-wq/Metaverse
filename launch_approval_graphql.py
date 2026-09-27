@@ -36,12 +36,14 @@ def _index_canonical_records(payload: Any) -> dict[str, dict[str, Any]]:
 
     if isinstance(payload, Mapping) and "record_id" in payload:
         records = [payload]
-    elif isinstance(payload, list):
+    elif isinstance(payload, Sequence) and not isinstance(
+        payload, (str, bytes, bytearray)
+    ):
         records = [record for record in payload if isinstance(record, Mapping)]
     elif isinstance(payload, Mapping):
         for key in ("records", "items", "launchApprovals", "launch_approvals"):
-            candidate = payload.get(key)
-            if isinstance(candidate, list):
+            candidate = _as_sequence(payload.get(key))
+            if candidate:
                 records = [record for record in candidate if isinstance(record, Mapping)]
                 break
         else:
