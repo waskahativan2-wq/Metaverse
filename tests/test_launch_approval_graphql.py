@@ -1,4 +1,5 @@
 import unittest
+from unittest.mock import patch
 
 from graphql import graphql_sync
 
@@ -62,6 +63,66 @@ class LaunchApprovalGraphQLTests(unittest.TestCase):
 
         self.assertEqual(list(indexed_records), [KNOWN_RECORD_ID])
         self.assertEqual(indexed_records[KNOWN_RECORD_ID]["title"], "Canonical")
+
+    def test_malformed_nested_values_are_normalized_safely(self) -> None:
+        with patch(
+            "launch_approval_graphql.load_canonical_records",
+            return_value={
+                KNOWN_RECORD_ID: {
+                    "record_id": KNOWN_RECORD_ID,
+                    "title": "Canonical",
+                    "version": "1.0.0",
+                    "status": "review",
+                    "owner": "Owner",
+                    "classification": "confidential",
+                    "approval_status": "pending",
+                    "signature_status": "unsigned",
+                    "decision": "No-go",
+                    "decision_rationale": "Pending",
+                    "release_identifier": "pending",
+                    "source_hash": "sha256:pending",
+                    "audit_log_reference": "pending",
+                    "storage_location": "pending",
+                    "evidence_links": "not-a-list",
+                    "open_exceptions": "not-a-list",
+                    "final_decision_block": None,
+                    "go_no_go_rule": {"requirements_met": "not-an-object"},
+                }
+            },
+        ):
+            result = execute_query(
+                """
+                query LaunchApproval($recordId: ID!) {
+                  launchApproval(recordId: $recordId) {
+                    evidenceLinks
+                    openExceptions {
+                      issue
+                    }
+                    finalDecisionBlock {
+                      finalDecision
+                    }
+                    goNoGoRule {
+                      requirementsMet {
+                        authorityVerified
+                      }
+                    }
+                  }
+                }
+                """,
+                {"recordId": KNOWN_RECORD_ID},
+            )
+
+        self.assertIsNone(result.errors)
+        self.assertEqual(result.data["launchApproval"]["evidenceLinks"], [])
+        self.assertEqual(result.data["launchApproval"]["openExceptions"], [])
+        self.assertIsNone(
+            result.data["launchApproval"]["finalDecisionBlock"]["finalDecision"]
+        )
+        self.assertIsNone(
+            result.data["launchApproval"]["goNoGoRule"]["requirementsMet"][
+                "authorityVerified"
+            ]
+        )
 
     def test_nested_open_exceptions_are_exposed(self) -> None:
         result = execute_query(

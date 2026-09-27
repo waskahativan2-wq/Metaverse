@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from collections.abc import Mapping
+from collections.abc import Mapping, Sequence
 import json
 from functools import lru_cache
 from pathlib import Path
@@ -72,6 +72,14 @@ def _as_mapping(value: Any) -> Mapping[str, Any]:
     return value if isinstance(value, Mapping) else {}
 
 
+def _as_sequence(value: Any) -> Sequence[Any]:
+    return (
+        value
+        if isinstance(value, Sequence) and not isinstance(value, (str, bytes, bytearray))
+        else ()
+    )
+
+
 def _normalize_final_decision_block(block: Mapping[str, Any]) -> dict[str, Any]:
     return {
         "finalDecision": block.get("final_decision"),
@@ -85,7 +93,7 @@ def _normalize_final_decision_block(block: Mapping[str, Any]) -> dict[str, Any]:
 
 
 def _normalize_go_no_go_rule(rule: Mapping[str, Any]) -> dict[str, Any]:
-    requirements = rule.get("requirements_met", {})
+    requirements = _as_mapping(rule.get("requirements_met"))
     return {
         "requirementsMet": {
             "authorityVerified": requirements.get("authority_verified"),
@@ -129,10 +137,10 @@ def get_launch_approval(record_id: str) -> dict[str, Any] | None:
         "sourceHash": record.get("source_hash"),
         "auditLogReference": record.get("audit_log_reference"),
         "storageLocation": record.get("storage_location"),
-        "evidenceLinks": list(evidence_links) if isinstance(evidence_links, list) else [],
+        "evidenceLinks": list(_as_sequence(evidence_links)),
         "openExceptions": [
             _normalize_open_exception(exception)
-            for exception in (open_exceptions if isinstance(open_exceptions, list) else [])
+            for exception in _as_sequence(open_exceptions)
             if isinstance(exception, Mapping)
         ],
         "finalDecisionBlock": _normalize_final_decision_block(
