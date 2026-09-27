@@ -68,6 +68,10 @@ def _normalize_open_exception(exception: Mapping[str, Any]) -> dict[str, Any]:
     }
 
 
+def _as_mapping(value: Any) -> Mapping[str, Any]:
+    return value if isinstance(value, Mapping) else {}
+
+
 def _normalize_final_decision_block(block: Mapping[str, Any]) -> dict[str, Any]:
     return {
         "finalDecision": block.get("final_decision"),
@@ -107,6 +111,9 @@ def get_launch_approval(record_id: str) -> dict[str, Any] | None:
     if record is None:
         return None
 
+    evidence_links = record.get("evidence_links")
+    open_exceptions = record.get("open_exceptions")
+
     return {
         "recordId": record.get("record_id"),
         "title": record.get("title"),
@@ -122,15 +129,16 @@ def get_launch_approval(record_id: str) -> dict[str, Any] | None:
         "sourceHash": record.get("source_hash"),
         "auditLogReference": record.get("audit_log_reference"),
         "storageLocation": record.get("storage_location"),
-        "evidenceLinks": list(record.get("evidence_links", [])),
+        "evidenceLinks": list(evidence_links) if isinstance(evidence_links, list) else [],
         "openExceptions": [
             _normalize_open_exception(exception)
-            for exception in record.get("open_exceptions", [])
+            for exception in (open_exceptions if isinstance(open_exceptions, list) else [])
+            if isinstance(exception, Mapping)
         ],
         "finalDecisionBlock": _normalize_final_decision_block(
-            record.get("final_decision_block", {})
+            _as_mapping(record.get("final_decision_block"))
         ),
-        "goNoGoRule": _normalize_go_no_go_rule(record.get("go_no_go_rule", {})),
+        "goNoGoRule": _normalize_go_no_go_rule(_as_mapping(record.get("go_no_go_rule"))),
     }
 
 

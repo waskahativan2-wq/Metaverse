@@ -55,6 +55,14 @@ class LaunchApprovalGraphQLTests(unittest.TestCase):
         self.assertEqual(sorted(indexed_records), ["A-1", "B-2"])
         self.assertEqual(indexed_records["B-2"]["title"], "Second")
 
+    def test_record_index_supports_single_record_payloads(self) -> None:
+        indexed_records = _index_canonical_records(
+            {"record_id": KNOWN_RECORD_ID, "title": "Canonical"}
+        )
+
+        self.assertEqual(list(indexed_records), [KNOWN_RECORD_ID])
+        self.assertEqual(indexed_records[KNOWN_RECORD_ID]["title"], "Canonical")
+
     def test_nested_open_exceptions_are_exposed(self) -> None:
         result = execute_query(
             """
