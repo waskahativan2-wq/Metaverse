@@ -1,9 +1,10 @@
 from __future__ import annotations
 
+from collections.abc import Mapping
 import json
 from functools import lru_cache
 from pathlib import Path
-from typing import Any, Mapping
+from typing import Any
 
 from graphql import (
     ExecutionResult,
@@ -26,8 +27,33 @@ RECORD_PATH = Path(__file__).resolve().parent / "docs" / "final-launch-approval-
 @lru_cache(maxsize=1)
 def load_canonical_records() -> dict[str, dict[str, Any]]:
     with RECORD_PATH.open(encoding="utf-8") as record_file:
-        record = json.load(record_file)
-    return {record["record_id"]: record}
+        payload = json.load(record_file)
+    return _index_canonical_records(payload)
+
+
+def _index_canonical_records(payload: Any) -> dict[str, dict[str, Any]]:
+    records: list[Mapping[str, Any]]
+
+    if isinstance(payload, Mapping) and "record_id" in payload:
+        records = [payload]
+    elif isinstance(payload, list):
+        records = [record for record in payload if isinstance(record, Mapping)]
+    elif isinstance(payload, Mapping):
+        for key in ("records", "items", "launchApprovals", "launch_approvals"):
+            candidate = payload.get(key)
+            if isinstance(candidate, list):
+                records = [record for record in candidate if isinstance(record, Mapping)]
+                break
+        else:
+            records = []
+    else:
+        records = []
+
+    return {
+        record["record_id"]: dict(record)
+        for record in records
+        if record.get("record_id")
+    }
 
 
 def _normalize_open_exception(exception: Mapping[str, Any]) -> dict[str, Any]:

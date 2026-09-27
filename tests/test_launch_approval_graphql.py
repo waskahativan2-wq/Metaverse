@@ -2,7 +2,7 @@ import unittest
 
 from graphql import graphql_sync
 
-from launch_approval_graphql import execute_query, schema
+from launch_approval_graphql import _index_canonical_records, execute_query, schema
 
 
 KNOWN_RECORD_ID = "FLFN-LAUNCH-APPROVAL-2026-0001"
@@ -41,6 +41,19 @@ class LaunchApprovalGraphQLTests(unittest.TestCase):
 
         self.assertIsNone(result.errors)
         self.assertIsNone(result.data["launchApproval"])
+
+    def test_record_index_supports_collection_payloads(self) -> None:
+        indexed_records = _index_canonical_records(
+            {
+                "records": [
+                    {"record_id": "A-1", "title": "First"},
+                    {"record_id": "B-2", "title": "Second"},
+                ]
+            }
+        )
+
+        self.assertEqual(sorted(indexed_records), ["A-1", "B-2"])
+        self.assertEqual(indexed_records["B-2"]["title"], "Second")
 
     def test_nested_open_exceptions_are_exposed(self) -> None:
         result = execute_query(
