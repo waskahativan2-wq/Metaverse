@@ -91,7 +91,7 @@ class LaunchApprovalGraphQLTests(unittest.TestCase):
                     "source_hash": "sha256:pending",
                     "audit_log_reference": "pending",
                     "storage_location": "pending",
-                    "evidence_links": "not-a-list",
+                    "evidence_links": ("good-link", {"bad": "value"}, 7),
                     "open_exceptions": "not-a-list",
                     "final_decision_block": None,
                     "go_no_go_rule": {"requirements_met": "not-an-object"},
@@ -121,7 +121,7 @@ class LaunchApprovalGraphQLTests(unittest.TestCase):
             )
 
         self.assertIsNone(result.errors)
-        self.assertEqual(result.data["launchApproval"]["evidenceLinks"], [])
+        self.assertEqual(result.data["launchApproval"]["evidenceLinks"], ["good-link"])
         self.assertEqual(result.data["launchApproval"]["openExceptions"], [])
         self.assertIsNone(
             result.data["launchApproval"]["finalDecisionBlock"]["finalDecision"]

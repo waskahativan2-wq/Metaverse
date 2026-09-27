@@ -36,10 +36,6 @@ def _index_canonical_records(payload: Any) -> dict[str, dict[str, Any]]:
 
     if isinstance(payload, Mapping) and "record_id" in payload:
         records = [payload]
-    elif isinstance(payload, Sequence) and not isinstance(
-        payload, (str, bytes, bytearray)
-    ):
-        records = [record for record in payload if isinstance(record, Mapping)]
     elif isinstance(payload, Mapping):
         for key in ("records", "items", "launchApprovals", "launch_approvals"):
             candidate = _as_sequence(payload.get(key))
@@ -48,6 +44,8 @@ def _index_canonical_records(payload: Any) -> dict[str, dict[str, Any]]:
                 break
         else:
             records = []
+    elif isinstance(payload, (list, tuple)):
+        records = [record for record in payload if isinstance(record, Mapping)]
     else:
         records = []
 
@@ -139,12 +137,11 @@ def get_launch_approval(record_id: str) -> dict[str, Any] | None:
         "sourceHash": record.get("source_hash"),
         "auditLogReference": record.get("audit_log_reference"),
         "storageLocation": record.get("storage_location"),
-        "evidenceLinks": (
-            list(evidence_links)
-            if isinstance(evidence_links, Sequence)
-            and not isinstance(evidence_links, (str, bytes, bytearray))
-            else []
-        ),
+        "evidenceLinks": [
+            evidence_link
+            for evidence_link in _as_sequence(evidence_links)
+            if isinstance(evidence_link, str)
+        ],
         "openExceptions": [
             _normalize_open_exception(exception)
             for exception in _as_sequence(open_exceptions)
