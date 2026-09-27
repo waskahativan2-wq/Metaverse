@@ -139,7 +139,12 @@ def get_launch_approval(record_id: str) -> dict[str, Any] | None:
         "sourceHash": record.get("source_hash"),
         "auditLogReference": record.get("audit_log_reference"),
         "storageLocation": record.get("storage_location"),
-        "evidenceLinks": list(_as_sequence(evidence_links)),
+        "evidenceLinks": (
+            list(evidence_links)
+            if isinstance(evidence_links, Sequence)
+            and not isinstance(evidence_links, (str, bytes, bytearray))
+            else []
+        ),
         "openExceptions": [
             _normalize_open_exception(exception)
             for exception in _as_sequence(open_exceptions)
