@@ -105,6 +105,18 @@ The handbook is a living, versioned document available in the OSIS Help Center. 
 
 Enforcement is proportionate and documented: education, content removal, feature limits, suspension, permanent removal, payment holds where lawful, and referral to authorities for credible criminal threats or abuse. High-impact decisions require trained human review, evidence preservation, appeal routes, and protection against retaliation.
 
+## Principles of Good Faith
+
+OSIS is built on the principle that every participant — players, creators, moderators, partners, and the platform itself — acts in good faith. In practice this means:
+
+- **Honesty:** No deceptive design, hidden terms, fabricated claims, or misleading automation. Players are told plainly what a system does and what it costs.
+- **Fair dealing:** Rules are applied consistently and transparently; no secret rewrites of ownership, consent, or competition terms. Changes are versioned and communicated before they take effect.
+- **Keeping commitments:** Published policies, review windows, appeal routes, and evidence records are honored as written, not treated as decoration.
+- **Presumption of legitimacy:** Reports, appeals, and disputes are reviewed on their merits by accountable humans, with reasons recorded and retaliation prohibited.
+- **No exploitation of trust:** Access to identity, body, biometric, psychological, or community data is never used outside the purposes for which consent was given.
+
+Where good-faith duties conflict with a legal obligation, the legal obligation governs, and the conflict and its resolution are documented.
+
 ## Live Attachments, Reviews, and Updates
 
 OSIS supports secure attachments to reports, policy proposals, partner reviews, and moderation cases. Attachments must be virus-scanned, access-controlled, encrypted in transit and at rest, minimized, retention-controlled, and linked to the relevant record.
