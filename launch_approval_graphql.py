@@ -114,11 +114,7 @@ def _normalize_go_no_go_rule(rule: Mapping[str, Any]) -> dict[str, Any]:
     }
 
 
-def get_launch_approval(record_id: str) -> dict[str, Any] | None:
-    record = load_canonical_records().get(record_id)
-    if record is None:
-        return None
-
+def _normalize_launch_approval_record(record: Mapping[str, Any]) -> dict[str, Any]:
     evidence_links = record.get("evidence_links")
     open_exceptions = record.get("open_exceptions")
 
@@ -152,6 +148,18 @@ def get_launch_approval(record_id: str) -> dict[str, Any] | None:
         ),
         "goNoGoRule": _normalize_go_no_go_rule(_as_mapping(record.get("go_no_go_rule"))),
     }
+
+
+@lru_cache(maxsize=1)
+def load_launch_approval_records() -> dict[str, dict[str, Any]]:
+    return {
+        record_id: _normalize_launch_approval_record(record)
+        for record_id, record in load_canonical_records().items()
+    }
+
+
+def get_launch_approval(record_id: str) -> dict[str, Any] | None:
+    return load_launch_approval_records().get(record_id)
 
 
 OpenExceptionType = GraphQLObjectType(

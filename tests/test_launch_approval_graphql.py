@@ -3,13 +3,23 @@ from unittest.mock import patch
 
 from graphql import graphql_sync
 
-from launch_approval_graphql import _index_canonical_records, execute_query, schema
+from launch_approval_graphql import (
+    _index_canonical_records,
+    execute_query,
+    load_canonical_records,
+    load_launch_approval_records,
+    schema,
+)
 
 
 KNOWN_RECORD_ID = "FLFN-LAUNCH-APPROVAL-2026-0001"
 
 
 class LaunchApprovalGraphQLTests(unittest.TestCase):
+    def setUp(self) -> None:
+        load_canonical_records.cache_clear()
+        load_launch_approval_records.cache_clear()
+
     def test_schema_builds_and_executes_query(self) -> None:
         result = execute_query(
             """
