@@ -24,9 +24,10 @@ RECORD_PATH = Path(__file__).resolve().parent / "docs" / "final-launch-approval-
 
 
 @lru_cache(maxsize=1)
-def load_canonical_record() -> dict[str, Any]:
+def load_canonical_records() -> dict[str, dict[str, Any]]:
     with RECORD_PATH.open(encoding="utf-8") as record_file:
-        return json.load(record_file)
+        record = json.load(record_file)
+    return {record["record_id"]: record}
 
 
 def _normalize_open_exception(exception: Mapping[str, Any]) -> dict[str, Any]:
@@ -76,8 +77,8 @@ def _normalize_go_no_go_rule(rule: Mapping[str, Any]) -> dict[str, Any]:
 
 
 def get_launch_approval(record_id: str) -> dict[str, Any] | None:
-    record = load_canonical_record()
-    if record.get("record_id") != record_id:
+    record = load_canonical_records().get(record_id)
+    if record is None:
         return None
 
     return {
