@@ -35,7 +35,7 @@ When a young player discovers that OSIS is secretly rewriting the ownership righ
 - **The Grand Racetrack:** Anti-gravity races, hover-car circuits, spacecraft competitions, team relays, and dimensional time trials.
 - **Motorsport Hub:** Simulated racing inspired by endurance racing, touring cars, stock cars, and open-wheel competition, with licensed partnerships only where rights are secured.
 - **Sporting Grounds:** Golf, racing, and other sports use skill-based play, accessible rules, fair matchmaking, and region-appropriate safety controls.
-- **The Bazaar:** Player-owned storefronts for fashion, vehicles, homes, art, music, collectibles, and virtual services.
+- **The Bazaar:** Player-owned storefronts for fashion, vehicles, homes, art, music, collectibles, and virtual services. See the [Marketplace cheatsheet](Marketplace.md) for a quick reference.
 - **The Coin Casino:** Transparent, age-restricted, skill-based entertainment using OSIS Coins and non-cash rewards. Progression is never pay-to-win. Real-money gaming, wagering, prediction markets, or prizes remain disabled unless separately licensed and approved in the applicable jurisdiction.
 - **Profile City:** A social identity layer showing achievements, race records, flight licenses, creations, friends, affiliations, and privacy settings.
 - **Creator and Adult Districts:** Optional, clearly labeled, adults-only spaces for lawful mature media and entertainment. They are isolated from youth areas, excluded from default discovery, and require appropriate age assurance and moderation.
