@@ -44,6 +44,19 @@ To publish the landing page from this repository:
 4. Select the publishing branch (for this repository, **`main`**) and folder **`/docs`**.
 5. Save the configuration and wait for GitHub Pages to publish `docs/index.html`.
 
+## Legal requirements
+
+Before any pilot, launch, or public release, OSIS must satisfy these minimum legal and compliance requirements:
+
+- Obtain qualified legal, privacy, safety, security, accessibility, and regional compliance review for the exact release scope.
+- Keep real-money wagering, prizes, adult services, biometric processing, psychological assessment, and other high-risk features disabled unless they are specifically licensed, approved, and documented for the applicable jurisdiction.
+- Publish and approve versioned player-facing terms, community rules, privacy notice, consent language, accessibility statement, refund rules, and regional notices.
+- Secure documented rights or licenses for brands, likenesses, music, images, user-generated content, sports references, and other protected content before use.
+- Document age assurance, identity, consent, reporting, moderation, data residency, cross-border transfer, export, deletion, complaint, and breach-response obligations for each supported region.
+- Preserve launch evidence, approvals, hashes, signatures, exceptions, and legal holds in tamper-evident records tied to the exact artifact being approved.
+
+Detailed release gates and evidence requirements are tracked in [docs/metaverse-finalization-checklist.md](docs/metaverse-finalization-checklist.md) and [docs/records-policy.md](docs/records-policy.md).
+
 ## Movie Concept
 
 ### Player One: OSIS Metaverse
@@ -62,7 +75,7 @@ When a young player discovers that OSIS is secretly rewriting the ownership righ
 - **The Grand Racetrack:** Anti-gravity races, hover-car circuits, spacecraft competitions, team relays, and dimensional time trials.
 - **Motorsport Hub:** Simulated racing inspired by endurance racing, touring cars, stock cars, and open-wheel competition, with licensed partnerships only where rights are secured.
 - **Sporting Grounds:** Golf, racing, and other sports use skill-based play, accessible rules, fair matchmaking, and region-appropriate safety controls.
-- **The Bazaar:** Player-owned storefronts for fashion, vehicles, homes, art, music, collectibles, and virtual services.
+- **The Bazaar:** Player-owned storefronts for fashion, vehicles, homes, art, music, collectibles, and virtual services. See the [Marketplace cheatsheet](Marketplace.md) for a quick reference.
 - **The Coin Casino:** Transparent, age-restricted, skill-based entertainment using OSIS Coins and non-cash rewards. Progression is never pay-to-win. Real-money gaming, wagering, prediction markets, or prizes remain disabled unless separately licensed and approved in the applicable jurisdiction.
 - **Profile City:** A social identity layer showing achievements, race records, flight licenses, creations, friends, affiliations, and privacy settings.
 - **Creator and Adult Districts:** Optional, clearly labeled, adults-only spaces for lawful mature media and entertainment. They are isolated from youth areas, excluded from default discovery, and require appropriate age assurance and moderation.
@@ -78,6 +91,16 @@ OSIS may support fantasy competitions, predictions, sponsorships, and regulated 
 - Use fictional teams and results unless a rights holder has granted written permission.
 
 If a region does not permit a feature, OSIS disables it there and offers a compliant alternative such as free-to-play predictions or non-cash sports challenges.
+
+### Predictions
+
+Prediction features default to free-to-play, non-cash participation unless a separately licensed and approved offering is enabled for a specific jurisdiction. Any prediction experience must:
+
+- publish clear eligibility, scoring, tie-break, deadline, prize, and dispute rules before entry;
+- avoid misleading odds, hidden advantages, insider participation, match manipulation, or pay-to-win mechanics;
+- separate promotional activity from gameplay and clearly label sponsored or branded prediction events;
+- apply age, identity, geolocation, fraud, and abuse controls where required by law or platform policy; and
+- disable or replace the feature with a compliant alternative whenever local law, licensing, or rights clearance is incomplete.
 
 ## Body Rights and Digital Ownership
 
@@ -121,6 +144,18 @@ The handbook is a living, versioned document available in the OSIS Help Center. 
 7. Report urgent danger through emergency services first, then OSIS safety support.
 
 Enforcement is proportionate and documented: education, content removal, feature limits, suspension, permanent removal, payment holds where lawful, and referral to authorities for credible criminal threats or abuse. High-impact decisions require trained human review, evidence preservation, appeal routes, and protection against retaliation.
+
+## Principles of Good Faith
+
+OSIS is built on the principle that every participant — players, creators, moderators, partners, and the platform itself — acts in good faith. In practice this means:
+
+- **Honesty:** No deceptive design, hidden terms, fabricated claims, or misleading automation. Players are told plainly what a system does and what it costs.
+- **Fair dealing:** Rules are applied consistently and transparently; no secret rewrites of ownership, consent, or competition terms. Changes are versioned and communicated before they take effect.
+- **Keeping commitments:** Published policies, review windows, appeal routes, and evidence records are honored as written, not treated as decoration.
+- **Presumption of legitimacy:** Reports, appeals, and disputes are reviewed on their merits by accountable humans, with reasons recorded and retaliation prohibited.
+- **No exploitation of trust:** Access to identity, body, biometric, psychological, or community data is never used outside the purposes for which consent was given.
+
+Where good-faith duties conflict with a legal obligation, the legal obligation governs, and the conflict and its resolution are documented.
 
 ## Live Attachments, Reviews, and Updates
 
