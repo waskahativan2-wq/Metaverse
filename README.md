@@ -108,7 +108,7 @@ The project includes a formal records framework for live documents, signature ev
 - Immutable or tamper-evident storage location, access controls, and legal-hold status.
 - Release identifier, decision rationale, open exceptions, rollback trigger, and next review date.
 
-The policy is documented in both [docs/records-policy.md](docs/records-policy.md) and [docs/records-policy.html](docs/records-policy.html). A release cannot be marked **Go** until required evidence, risk acceptance, and approvals are complete for the exact hashed release artifact. Changes to a signed record create a new version and require re-review and re-signature.
+The policy is documented in both [docs/records-policy.md](docs/records-policy.md) and [docs/records-policy.html](docs/records-policy.html). Wagering, betting, casino, prediction-market, and prize features follow the dedicated [docs/wagering-compliance.md](docs/wagering-compliance.md) policy: they are disabled by default in every jurisdiction and may be enabled only with a recorded licence, jurisdiction-specific legal review, tested controls, and signed approval. A release cannot be marked **Go** until required evidence, risk acceptance, and approvals are complete for the exact hashed release artifact. Changes to a signed record create a new version and require re-review and re-signature.
 
 ### Final launch rule
 

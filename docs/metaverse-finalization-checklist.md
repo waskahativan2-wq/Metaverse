@@ -19,6 +19,13 @@ Use this checklist before declaring OSIS ready for a pilot, public release, or p
 - [ ] Jurisdiction-specific review covers privacy, human rights, accessibility, consumer protection, advertising, intellectual property, payments, online safety, and content rights.
 - [ ] Canada launch review covers applicable federal, provincial, and territorial requirements, including privacy, accessibility, child safety, consumer protection, electronic messages, gambling, and advertising.
 - [ ] Real-money wagering, prize, casino, prediction, or betting features are disabled unless licensed and approved in the relevant jurisdiction.
+- [ ] Each wagering feature has a `wagering_compliance` record per `docs/wagering-compliance.md` and `docs/records-policy.md` with licence reference, licensee entity, regulator, scope, and effective/expiry dates.
+- [ ] Age and identity verification, geolocation, prohibited-person rules, and fail-closed eligibility checks are tested and evidenced before any wager is accepted.
+- [ ] Responsible-gaming controls (deposit/loss/wager/time limits, self-exclusion, cooling-off, reality checks, transparent odds, complaint routes) are tested and evidenced.
+- [ ] Wagering is separated from ordinary gameplay, virtual currency, loot, progression, minors, and youth areas; conversion paths are licensed and audited.
+- [ ] Wagering payment flows, AML/sanctions screening, withdrawals, refunds, and reconciliation are tested and comply with licence conditions.
+- [ ] Jurisdiction-scoped kill switches and the wagering disable/rollback trigger are tested, and licence expiry or suspension disables the feature.
+- [ ] Wagering advertising and promotions are reviewed for deception, dark patterns, age targeting, and jurisdictional restrictions.
 - [ ] Age-restricted and adult areas have lawful age assurance, separation, labeling, moderation, reporting, and discoverability controls.
 - [ ] Music, images, brands, sports leagues, vehicles, likenesses, user-generated content, models, and location data have documented rights or licenses.
 - [ ] Contracts and service terms are complete for identity, payments, hosting, moderation, analytics, communications, and content vendors.
