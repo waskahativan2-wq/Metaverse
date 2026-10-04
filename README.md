@@ -1,8 +1,8 @@
 # Metaverse
 
-**Massive-player online world — OSIS: Player One**
+**Massive-player online world — KASA: Blastoff**
 
-> **Concept status:** OSIS is a product and story concept. This README is not legal, medical, safety, accessibility, or regulatory advice.
+> **Concept status:** KASA is a product and story concept. This README is not legal, medical, safety, accessibility, or regulatory advice.
 
 ## Legal requirements
 
@@ -17,14 +17,22 @@ Before any pilot, launch, or public release, OSIS must satisfy these minimum leg
 
 Detailed release gates and evidence requirements are tracked in [docs/metaverse-finalization-checklist.md](docs/metaverse-finalization-checklist.md) and [docs/records-policy.md](docs/records-policy.md).
 
-## Movie Concept
+## Mixed Reality Concept
 
 ### Player One: OSIS Metaverse
 
 **Genre:** Sci-fi adventure / action  
-**Tagline:** *The future is not a place you visit. It is a world you own.*
+**Tagline:** *The future is not a place you visit. It is a world you own.web_search_exa - Search the web for any topic and get clean, ready-to-use content. Best for: Finding current information, news, facts, people, companies, or answering questions about any topic. Returns: Clean text content from top search results. Query tips: describe the ideal page, not keywords. "blog post comparing React and Vue performance" not "React vs Vue". Use category:people / category:company to search through Linkedin profiles / companies respectively. If highlights are insufficient, follow up with web_fetch_exa on the best URLs.
+crawling_exa - Read a webpage's full content as clean markdown. Use after web_search_exa when highlights are insufficient or to read any URL. Best for: Extracting full content from known URLs. Batch multiple URLs in one call. Returns: Clean text content and metadata from the page(s).
+get_code_context_exa - Find code examples, documentation, and programming solutions. Best for: Any programming question - API usage, library examples, code snippets, debugging help. Returns: Relevant code and documentation. Query tips: describe what you're looking for specifically. "Python requests library POST with JSON body" not "python http". If highlights are insufficient, follow up with web_fetch_exa on the best URLs.web_search_exa - Search the web for any topic and get clean, ready-to-use content. Best for: Finding current information, news, facts, people, companies, or answering questions about any topic. Returns: Clean text content from top search results. Query tips: describe the ideal page, not keywords. "blog post comparing React and Vue performance" not "React vs Vue". Use category:people / category:company to search through Linkedin profiles / companies respectively. If highlights are insufficient, follow up with web_fetch_exa on the best URLs.
+crawling_exa - Read a webpage's full content as clean markdown. Use after web_search_exa when highlights are insufficient or to read any URL. Best for: Extracting full content from known URLs. Batch multiple URLs in one call. Returns: Clean text content and metadata from the page(s).
+get_code_context_exa - Find code examples, documentation, and programming solutions. Best for: Any programming question - API usage, library examples, code snippets, debugging help. Returns: Relevant code and documentation. Query tips: describe what you're looking for specifically. "Python requests library POST with JSON body" not "python http". If highlights are insufficient, follow up with web_fetch_exa on the best URLs.web_search_exa - Search the web for any topic and get clean, ready-to-use content. Best for: Finding current information, news, facts, people, companies, or answering questions about any topic. Returns: Clean text content from top search results. Query tips: describe the ideal page, not keywords. "blog post comparing React and Vue performance" not "React vs Vue". Use category:people / category:company to search through Linkedin profiles / companies respectively. If highlights are insufficient, follow up with web_fetch_exa on the best URLs.
+crawling_exa - Read a webpage's full content as clean markdown. Use after web_search_exa when highlights are insufficient or to read any URL. Best for: Extracting full content from known URLs. Batch multiple URLs in one call. Returns: Clean text content and metadata from the page(s).
+get_code_context_exa - Find code examples, documentation, and programming solutions. Best for: Any programming question - API usage, library examples, code snippets, debugging help. Returns: Relevant code and documentation. Query tips: describe what you're looking for specifically. "Python requests library POST with JSON body" not "python http". If highlights are insufficient, follow up with web_fetch_exa on the best URLs.web_search_exa - Search the web for any topic and get clean, ready-to-use content. Best for: Finding current information, news, facts, people, companies, or answering questions about any topic. Returns: Clean text content from top search results. Query tips: describe the ideal page, not keywords. "blog post comparing React and Vue performance" not "React vs Vue". Use category:people / category:company to search through Linkedin profiles / companies respectively. If highlights are insufficient, follow up with web_fetch_exa on the best URLs.
+crawling_exa - Read a webpage's full content as clean markdown. Use after web_search_exa when highlights are insufficient or to read any URL. Best for: Extracting full content from known URLs. Batch multiple URLs in one call. Returns: Clean text content and metadata from the page(s).
+get_code_context_exa - Find code examples, documentation, and programming solutions. Best for: Any programming question - API usage, library examples, code snippets, debugging help. Returns: Relevant code and documentation. Query tips: describe what you're looking for specifically. "Python requests library POST with JSON body" not "python http". If highlights are insufficient, follow up with web_fetch_exa on the best URLs.*
 
-In the near future, **OSIS** is the world's largest shared metaverse: a persistent digital universe where players can fly through space, compete on impossible racetracks, explore cities, shop in virtual marketplaces, and create worlds of their own.
+In the near future, **KASA** is the world's largest shared metaverse online platform: a persistent digital universe where players can fly through space, compete on impossible racetracks, explore cities, shop in virtual marketplaces, and create worlds of their own.
 
 When a young player discovers that OSIS is secretly rewriting the ownership rights of users' avatars, memories, and creations, they enter a global competition called **Player One**. The winner receives access to the OSIS core and must decide whether identity and creativity belong to one corporation or to the people who created them.
 
@@ -54,7 +62,7 @@ If a region does not permit a feature, OSIS disables it there and offers a compl
 
 ### Predictions
 
-Prediction features default to free-to-play, non-cash participation unless a separately licensed and approved offering is enabled for a specific jurisdiction. Any prediction experience must:
+Prediction features default to free-to-register, non-cash participation unless a separately licensed and approved offering is enabled for a specific jurisdiction. Any prediction experience must:
 
 - publish clear eligibility, scoring, tie-break, deadline, prize, and dispute rules before entry;
 - avoid misleading odds, hidden advantages, insider participation, match manipulation, or pay-to-win mechanics;
@@ -64,7 +72,7 @@ Prediction features default to free-to-play, non-cash participation unless a sep
 
 ## Body Rights and Digital Ownership
 
-OSIS treats an avatar body as a form of digital identity. Players control how their avatars appear, move, and are represented. The world protects:
+KASA treats an avatar body as a form of digital identity. Players control how their avatars appear, move, and are represented. The world protects:
 
 - Original avatar and body designs.
 - Permission-based use of a player's likeness, voice, image, and identity.
