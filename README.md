@@ -11,6 +11,7 @@ Before any pilot, launch, or public release, OSIS must satisfy these minimum leg
 - Obtain qualified legal, privacy, safety, security, accessibility, and regional compliance review for the exact release scope.
 - Keep real-money wagering, prizes, adult services, biometric processing, psychological assessment, and other high-risk features disabled unless they are specifically licensed, approved, and documented for the applicable jurisdiction.
 - Publish and approve versioned player-facing terms, community rules, privacy notice, consent language, accessibility statement, refund rules, and regional notices.
+- For Canadian launches, assess potential impacts on Indigenous and treaty rights and obtain qualified advice on any applicable engagement or consultation requirements.
 - Secure documented rights or licenses for brands, likenesses, music, images, user-generated content, sports references, and other protected content before use.
 - Document age assurance, identity, consent, reporting, moderation, data residency, cross-border transfer, export, deletion, complaint, and breach-response obligations for each supported region.
 - Preserve launch evidence, approvals, hashes, signatures, exceptions, and legal holds in tamper-evident records tied to the exact artifact being approved.

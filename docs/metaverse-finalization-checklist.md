@@ -18,12 +18,15 @@ Use this checklist before declaring OSIS ready for a pilot, public release, or p
 
 - [ ] Jurisdiction-specific review covers privacy, human rights, accessibility, consumer protection, advertising, intellectual property, payments, online safety, and content rights.
 - [ ] Canada launch review covers applicable federal, provincial, and territorial requirements, including privacy, accessibility, child safety, consumer protection, electronic messages, gambling, and advertising.
+- [ ] For a Canadian launch, partnership, deployment, or data practice that could affect Indigenous or treaty rights, qualified counsel assesses applicable rights and any Crown consultation or accommodation duties; relevant rights-holders are identified and engaged through appropriate processes, with commitments and outcomes recorded. OSIS engagement does not replace a duty owed by the Crown, and no single organization is presumed to represent all rights-holders.
 - [ ] Real-money wagering, prize, casino, prediction, or betting features are disabled unless licensed and approved in the relevant jurisdiction.
 - [ ] Age-restricted and adult areas have lawful age assurance, separation, labeling, moderation, reporting, and discoverability controls.
 - [ ] Music, images, brands, sports leagues, vehicles, likenesses, user-generated content, models, and location data have documented rights or licenses.
 - [ ] Contracts and service terms are complete for identity, payments, hosting, moderation, analytics, communications, and content vendors.
 - [ ] Data residency, cross-border transfer, access, correction, export, deletion, complaint, and breach obligations are documented.
 - [ ] Marketing claims, endorsements, promotions, and urgency messages are substantiated and reviewed for deception and dark patterns.
+
+> Context: [*The Evolving Canadian Crown*, edited by Jennifer Smith and D. Michael Jackson](https://www.queensu.ca/iigr/sites/iirwww/files/uploaded_files/PDF%20Publications/Evolving%20Can%20Crown%20Smith%20Jackson.pdf), informs this checklist’s attention to Indigenous–Crown relations. It is contextual scholarship, not legal advice or a statement of OSIS’s legal duties.
 
 ## 3. Identity, age, consent, and player control
 
