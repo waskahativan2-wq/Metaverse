@@ -32,13 +32,15 @@ get_code_context_exa - Find code examples, documentation, and programming soluti
 crawling_exa - Read a webpage's full content as clean markdown. Use after web_search_exa when highlights are insufficient or to read any URL. Best for: Extracting full content from known URLs. Batch multiple URLs in one call. Returns: Clean text content and metadata from the page(s).
 get_code_context_exa - Find code examples, documentation, and programming solutions. Best for: Any programming question - API usage, library examples, code snippets, debugging help. Returns: Relevant code and documentation. Query tips: describe what you're looking for specifically. "Python requests library POST with JSON body" not "python http". If highlights are insufficient, follow up with web_fetch_exa on the best URLs.*
 
-In the near future, **KASA** is the world's largest shared metaverse online platform: a persistent digital universe where players can fly through space, compete on impossible racetracks, explore cities, shop in virtual marketplaces, and create worlds of their own.
+In the near future, **KASA** is the world's largest shared metaverse online platform: a persistent digital universe where players can fly through space, compete on impossible racetracks, explore cities, shop in virtual marketplaces, and create worlds of their own.web_search_exa - Search the web for any topic and get clean, ready-to-use content. Best for: Finding current information, news, facts, people, companies, or answering questions about any topic. Returns: Clean text content from top search results. Query tips: describe the ideal page, not keywords. "blog post comparing React and Vue performance" not "React vs Vue". Use category:people / category:company to search through Linkedin profiles / companies respectively. If highlights are insufficient, follow up with web_fetch_exa on the best URLs.
+crawling_exa - Read a webpage's full content as clean markdown. Use after web_search_exa when highlights are insufficient or to read any URL. Best for: Extracting full content from known URLs. Batch multiple URLs in one call. Returns: Clean text content and metadata from the page(s).
+get_code_context_exa - Find code examples, documentation, and programming solutions. Best for: Any programming question - API usage, library examples, code snippets, debugging help. Returns: Relevant code and documentation. Query tips: describe what you're looking for specifically. "Python requests library POST with JSON body" not "python http". If highlights are insufficient, follow up with web_fetch_exa on the best URLs.
 
 When a young player discovers that OSIS is secretly rewriting the ownership rights of users' avatars, memories, and creations, they enter a global competition called **Player One**. The winner receives access to the OSIS core and must decide whether identity and creativity belong to one corporation or to the people who created them.
 
-## The OSIS Universe
+## The KASA Universe
 
-- **Central Space:** An orbital city surrounding the OSIS energy core, with portals, player homes, identity chambers, and live events.
+- **Central Space:** An orbital city surrounding the KASA energy core, with portals, player homes, identity chambers, and live events.
 - **Flight Zones:** Spacecraft, hover bikes, wingsuits, and drones explore asteroid fields, alien oceans, zero-gravity cities, and solar storms.
 - **The Grand Racetrack:** Anti-gravity races, hover-car circuits, spacecraft competitions, team relays, and dimensional time trials.
 - **Motorsport Hub:** Simulated racing inspired by endurance racing, touring cars, stock cars, and open-wheel competition, with licensed partnerships only where rights are secured.
@@ -50,7 +52,7 @@ When a young player discovers that OSIS is secretly rewriting the ownership righ
 
 ## Sports, Betting, and Fair Play
 
-OSIS may support fantasy competitions, predictions, sponsorships, and regulated sports wagering only through licensed operators and only in eligible jurisdictions. The platform will:
+KASA may support fantasy competitions, predictions, sponsorships, and regulated sports wagering only through licensed operators and only in eligible jurisdictions. The platform will:
 
 - Keep wagering separate from ordinary gameplay, virtual currency, loot, and progression.
 - Use age and identity verification, geolocation, responsible-gaming limits, self-exclusion, cooling-off periods, and transparent odds where legally required.
@@ -115,7 +117,7 @@ Enforcement is proportionate and documented: education, content removal, feature
 
 ## Principles of Good Faith
 
-OSIS is built on the principle that every participant — players, creators, moderators, partners, and the platform itself — acts in good faith. In practice this means:
+KASA is built on the principle that every participant — players, creators, moderators, partners, and the platform itself — acts in good faith. In practice this means:
 
 - **Honesty:** No deceptive design, hidden terms, fabricated claims, or misleading automation. Players are told plainly what a system does and what it costs.
 - **Fair dealing:** Rules are applied consistently and transparently; no secret rewrites of ownership, consent, or competition terms. Changes are versioned and communicated before they take effect.
@@ -127,7 +129,7 @@ Where good-faith duties conflict with a legal obligation, the legal obligation g
 
 ## Live Attachments, Reviews, and Updates
 
-OSIS supports secure attachments to reports, policy proposals, partner reviews, and moderation cases. Attachments must be virus-scanned, access-controlled, encrypted in transit and at rest, minimized, retention-controlled, and linked to the relevant record.
+KASA supports secure attachments to reports, policy proposals, partner reviews, and moderation cases. Attachments must be virus-scanned, access-controlled, encrypted in transit and at rest, minimized, retention-controlled, and linked to the relevant record.
 
 Every policy release records:
 
@@ -161,13 +163,13 @@ The policy is documented in both [docs/records-policy.md](docs/records-policy.md
 
 ## Contact, Sharing, Advertising, and Partners
 
-OSIS provides separate, clearly labeled channels for player support, safety reports, privacy requests, accessibility, creator rights, advertising inquiries, press, partner proposals, and responsible gaming.
+KASA provides separate, clearly labeled channels for player support, safety reports, privacy requests, accessibility, creator rights, advertising inquiries, press, partner proposals, and responsible gaming.
 
 Advertising and partnerships must be transparent, age-appropriate, frequency-limited, and clearly distinguishable from gameplay. No partner may buy access to private identity data, target sensitive characteristics without lawful authorization, or use biometric, body, psychological, or emotional data for advertising without specific legal review and consent.
 
 ## Regional and Language Support
 
-OSIS is designed for localization, not one-size-fits-all global enforcement. Before launch in a region, the team evaluates age rules, privacy and consumer protections, gambling and advertising law, accessibility, content rights, data residency, cross-border transfers, and reporting obligations.
+KASA is designed for localization, not one-size-fits-all global enforcement. Before launch in a region, the team evaluates age rules, privacy and consumer protections, gambling and advertising law, accessibility, content rights, data residency, cross-border transfers, and reporting obligations.
 
 Player-facing rules, consent flows, reporting forms, safety notices, and support are translated and reviewed by qualified native-language specialists. Machine translation may assist discovery, but high-risk legal, safety, consent, and emergency content requires qualified human review.
 
@@ -177,13 +179,13 @@ A Canadian release requires province- and feature-specific review of privacy, hu
 
 ## Unified monitoring and AI governance
 
-OSIS may use automation and AI for monitoring, triage, accessibility support, and operational assistance, but not as an unreviewed decision-maker for high-impact rights or safety outcomes. Monitoring must cover authentication, abuse reports, moderation backlog, privacy incidents, accessibility issues, payment failures, availability, child-safety flags, and policy exceptions.
+KASA may use automation and AI for monitoring, triage, accessibility support, and operational assistance, but not as an unreviewed decision-maker for high-impact rights or safety outcomes. Monitoring must cover authentication, abuse reports, moderation backlog, privacy incidents, accessibility issues, payment failures, availability, child-safety flags, and policy exceptions.
 
 AI systems must be tested for hallucination, prompt injection, bias, unsafe advice, privacy leakage, impersonation, evasion, and adversarial content. Human review remains required for severe moderation, account access, legal, child-safety, psychological-safety, and other high-impact decisions.
 
 ## Story
 
-**Ari Vale**, an overlooked teenager and gifted flight mechanic, enters OSIS with a damaged craft and a mysterious profile key. With **NOVA**, an AI navigator seeking personhood; **Mako**, a legendary pilot; and a team of creators, Ari discovers that the Directorate's upgrade promises permanent identity, unlimited customization, and digital immortality—but secretly converts player profiles, avatar bodies, memories, and creations into corporate property.
+**Ari Vale**, an overlooked teenager and gifted flight mechanic, enters KASA with a damaged craft and a mysterious profile key. With **NOVA**, an AI navigator seeking personhood; **Mako**, a legendary pilot; and a team of creators, Ari discovers that the Directorate's upgrade promises permanent identity, unlimited customization, and digital immortality—but secretly converts player profiles, avatar bodies, memories, and creations into corporate property.
 
 Ari's team must collect four keys across OSIS:
 
@@ -192,7 +194,7 @@ Ari's team must collect four keys across OSIS:
 3. The Creator Key
 4. The Identity Key
 
-The final race crosses Central Space, a collapsing star tunnel, the Grand Racetrack, and the OSIS core. Ari can become the new ruler of the metaverse—or release control to the players. Ari chooses a world governed by consent, creativity, accountability, and shared ownership.
+The final race crosses Central Space, a collapsing star tunnel, the Grand Racetrack, and the KASA core. Ari can become the new ruler of the metaverse—or release control to the players. Ari chooses a world governed by consent, creativity, accountability, and shared ownership.
 
 ## Core Themes
 
@@ -205,6 +207,6 @@ The final race crosses Central Space, a collapsing star tunnel, the Grand Racetr
 - Accessibility and inclusion
 - The danger of turning play into exploitation
 
-**OSIS is not valuable because one company controls it. It is valuable because millions of players make it alive.**
+**KASA is not valuable because one company controls it. It is valuable because millions of players make it alive.**
 
 > This README is a product and story concept, not legal, medical, safety, accessibility, or regulatory advice. Any real-money wagering, adult service, body/biometric data processing, psychological evaluation, advertising, or regional launch requires qualified review and documented approval.
