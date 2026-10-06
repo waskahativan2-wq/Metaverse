@@ -49,6 +49,7 @@ When a young player discovers that OSIS is secretly rewriting the ownership righ
 - **The Coin Casino:** Transparent, age-restricted, skill-based entertainment using OSIS Coins and non-cash rewards. Progression is never pay-to-win. Real-money gaming, wagering, prediction markets, or prizes remain disabled unless separately licensed and approved in the applicable jurisdiction.
 - **Profile City:** A social identity layer showing achievements, race records, flight licenses, creations, friends, affiliations, and privacy settings.
 - **Creator and Adult Districts:** Optional, clearly labeled, adults-only spaces for lawful mature media and entertainment. They are isolated from youth areas, excluded from default discovery, and require appropriate age assurance and moderation.
+- **Learning Studios:** Education spaces host programs such as the [Ripple Effect Art+Music Curriculum](Curriculum.md), which teaches young creators to move from reaction to responsibility through attribution, consent, licensing, and accessible design.
 
 ## Sports, Betting, and Fair Play
 
